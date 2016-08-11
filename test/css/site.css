@@ -1,0 +1,303 @@
+html,
+body {
+    background: #444;
+    font-family: 'Oxygen', sans-serif;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#bodyNav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    min-width: 300px;
+    width: 30%;
+    max-width: 500px;
+    background: #fff;
+}
+
+#bodyNav #navContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#bodyNav #logoDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#bodyNav #logoDiv i {
+    font-size: 124px;
+    margin-top: 20px;
+}
+
+#bodyNav #logoDiv #headerContainer {
+    display: block;
+}
+
+#bodyNav #logoDiv h1,
+#bodyNav #logoDiv h4 {
+    margin: 0;
+    padding: 0;
+}
+
+#bodyNav #logoDiv h4 {
+    color: #aaa;
+}
+
+#bodyNav #navDiv {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    right: 0;
+    min-height: 100px;
+}
+
+#bodyNav #navDiv ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bodyNav #navDiv ul li {
+    height: 48px;
+    line-height: 48px;
+    /*padding-left: 4px;*/
+    padding-bottom: 4px;
+    cursor: pointer;
+    /*border-bottom: 1px solid #ccc;*/
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+#bodyNav #navDiv ul li i {
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+#bodyNav #navDiv ul li div {
+    display: inline-block;
+}
+
+/*#bodyNav #navDiv ul li:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ccc;
+    height: 2px;
+}*/
+
+#bodyNav #socialDiv {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#bodyNav #socialDiv .socialBubble {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #dfdfdf;
+    border: 2px solid #ccc;
+    margin: 0 4px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#bodyNav #socialDiv .socialBubble i {
+    vertical-align: middle;
+    font-size: 24px;
+}
+
+#bodyMain {
+    height: 150%;
+    overflow-y: auto;
+}
+
+#bodyFooter {
+    /*display: none;*/
+    background: #efefef;
+    width: 100%;
+    height: 200px;
+}
+
+#bodyNav #menuToggle {
+    display: none;
+    position: fixed;
+    top: 6px;
+    right: 6px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#bodyNav.open {
+    height: 236px;
+}
+
+#bodyNav.open #socialDiv {
+    top: auto;
+    bottom:8px;
+}
+
+#bodyNav.open #navDiv {
+    padding-top: 0px;
+}
+
+@media screen and (max-width: 64em) {
+    #bodyNav {
+        top: 0;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 130px;
+    }
+    #bodyNav #navContainer {
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #bodyNav #logoDiv {
+        position: relative;
+        text-align: left;
+    }
+    #bodyNav #logoDiv i {
+        vertical-align: middle;
+        margin-top: 0px;
+    }
+    #bodyNav #logoDiv h1 {
+        display: inline-block;
+    }
+    #bodyNav #logoDiv #headerContainer {
+        display: inline-block;
+    }
+    #bodyNav #navDiv {
+        left: auto;
+        top: 0px;
+        right: 10px;
+        line-height: 100px;
+    }
+    #bodyNav #navDiv ul li {
+        text-align: center;
+        min-width: 100px;
+        max-width: 100px;
+        display: inline-block;
+        height: 40px;
+        line-height: 44px;
+    }
+    #bodyNav #socialDiv {
+        right: 0;
+        padding-right: 6px;
+        text-align: right;
+    }
+    #bodyNav #socialDiv .socialBubble {
+        height: 24px;
+        width: 24px;
+        line-height: 20px;
+    }
+    #bodyNav #socialDiv .socialBubble i {
+        vertical-align: middle;
+        font-size: 18px;
+    }
+    #bodyFooter {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 44em) {
+    #bodyNav {
+        height: 100px;
+    }
+    #bodyNav #logoDiv i {
+        font-size: 96px;
+    }
+    #bodyNav #logoDiv h1 {
+        font-size: 22px;
+    }
+    #bodyNav #logoDiv h4 {
+        font-size: 14px;
+    }
+    #bodyNav #logoDiv #headerContainer {
+        display: inline-block;
+    }
+    #bodyNav #navDiv {
+        right: 10px;
+        line-height: 70px;
+    }
+    #bodyNav #navDiv ul li {
+        text-align: center;
+        min-width: 100px;
+        max-width: 100px;
+        display: inline-block;
+        font-size: 16px;
+        height: 32px;
+        line-height: 40px;
+    }
+    #bodyNav #navDiv ul li i {
+        font-size: 32px;
+        vertical-align: middle;
+    }
+}
+
+@media screen and (max-width: 38em) {
+    #bodyNav {
+        height: 90px;
+    }
+    #bodyNav #navContainer {
+        display: block;
+    }
+    #bodyNav #logoDiv {
+        display: block;
+        width: 100%;
+    }
+    #bodyNav #logoDiv i {
+        font-size: 84px;
+    }
+    #bodyNav #logoDiv h1 {
+        font-size: 20px;
+    }
+    #bodyNav #logoDiv h4 {
+        font-size: 12px;
+    }
+    #bodyNav #navDiv {
+        display: block;
+        width: 100%;
+        text-align: center;
+        right: 0;
+        padding-top: 8px;
+        position: relative;
+    }
+    #bodyNav #navDiv ul li {
+        max-width: 100%;
+        display: block;
+        font-size: 12px;
+    }
+    #bodyNav #socialDiv {
+        top: 54px;
+        bottom: auto;
+        padding-bottom: 0;
+    }
+    #bodyNav #menuToggle {
+        z-index: 10;
+        display: block;
+    }
+}

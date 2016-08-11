@@ -1,0 +1,26 @@
+.socialLink2 {
+    position: relative;
+    z-index: 1;
+}
+
+    .socialLink2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: -2px;
+        right: -2px;
+        height: 2px;
+        background: transparent;
+        z-index: -1;
+        -webkit-transition: all 0.6s ease 0s;
+        -moz-transition: all 0.6s ease 0s;
+        transition: all 0.6s ease 0s;
+    }
+
+   li:hover .socialLink2::after {
+        bottom: 0;
+        background: #aaa;
+        -webkit-transition: all 0.6s ease 0s;
+        -moz-transition: all 0.6s ease 0s;
+        transition: all 0.6s ease 0s;
+    }
