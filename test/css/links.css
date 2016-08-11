@@ -19,7 +19,7 @@
 
    li:hover .socialLink2::after {
         bottom: 0;
-        background: #aaa;
+        background: #2196f3;
         -webkit-transition: all 0.6s ease 0s;
         -moz-transition: all 0.6s ease 0s;
         transition: all 0.6s ease 0s;
