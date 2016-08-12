@@ -1,26 +1,22 @@
-.socialLink2 {
+.hoverLink {
     position: relative;
     z-index: 1;
 }
 
-    .socialLink2::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: -2px;
-        right: -2px;
-        height: 2px;
-        background: transparent;
-        z-index: -1;
-        -webkit-transition: all 0.6s ease 0s;
-        -moz-transition: all 0.6s ease 0s;
-        transition: all 0.6s ease 0s;
-    }
+.hoverLink::after {
+    display: none;
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background: transparent;
+    background: #2196f3;
+    z-index: -1;
+}
 
-   li:hover .socialLink2::after {
-        bottom: 0;
-        background: #2196f3;
-        -webkit-transition: all 0.6s ease 0s;
-        -moz-transition: all 0.6s ease 0s;
-        transition: all 0.6s ease 0s;
-    }
+li:hover .hoverLink::after {
+    display: block;
+    bottom: 0;
+}

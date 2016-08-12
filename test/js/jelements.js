@@ -192,5 +192,16 @@ _.prototype = {
         });
         return this;
     },
+
+    children: function(selector) {
+        var elements = [];
+        this.each(function(i,el) {
+            var children = el.querySelectorAll(selector);
+            _.each(children, function(i, el) {
+                elements.push(el);
+            });
+        });
+        return _(elements);
+    }
 }
 

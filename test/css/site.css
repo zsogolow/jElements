@@ -1,24 +1,20 @@
 html,
 body {
     background: #444;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Maven Pro', sans-serif;
     height: 100%;
     padding: 0;
     margin: 0;
 }
 
-
-#menuToggle {
-}
-
 #menuToggle {
     display: none;
     position: fixed;
-     top: 6px;
+    top: 6px;
     right: 6px;
-     width: 36px;
+    width: 36px;
     height: 36px;
-    margin:0;
+    margin: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -31,7 +27,7 @@ body {
 }
 
 #menuToggle:hover span {
-    background:#2196f3;
+    background: #2196f3;
 }
 
 #menuToggle span {
@@ -67,7 +63,7 @@ body {
 }
 
 #menuToggle.open span {
-    background:#2196f3;
+    background: #2196f3;
 }
 
 #menuToggle.open span:nth-child(1) {
@@ -165,6 +161,7 @@ body {
 #bodyNav #navDiv ul li i {
     font-size: 36px;
     vertical-align: middle;
+    position: relative;
 }
 
 #bodyNav #navDiv ul li div {
@@ -212,13 +209,6 @@ body {
 #bodyMain {
     height: 150%;
     overflow-y: auto;
-}
-
-#bodyFooter {
-    /*display: none;*/
-    background: #efefef;
-    width: 100%;
-    height: 200px;
 }
 
 #bodyNav.open {
@@ -291,9 +281,6 @@ body {
     #bodyNav #socialDiv .socialBubble i {
         vertical-align: middle;
         font-size: 18px;
-    }
-    #bodyFooter {
-        display: block;
     }
 }
 
