@@ -11,12 +11,14 @@
     left: -2px;
     right: -2px;
     height: 2px;
-    background: transparent;
     background: #2196f3;
     z-index: -1;
 }
 
 li:hover .hoverLink::after {
     display: block;
-    bottom: 0;
+}
+
+li.active .hoverLink::after {
+    display: block;
 }

@@ -188,16 +188,21 @@ _.prototype = {
 
     // Data
     data: function (name, value) {
-        this.each(function (i, el) {
-        });
-        return this;
+        if (!value && arguments.length == 1) {
+            return this.htmlElements.length > 0 ? this.htmlElements[0].dataset[name] : undefined;
+        } else {
+            this.each(function (i, el) {
+                el.dataset[name] = value;
+            });
+            return this;
+        }
     },
 
-    children: function(selector) {
+    children: function (selector) {
         var elements = [];
-        this.each(function(i,el) {
+        this.each(function (i, el) {
             var children = el.querySelectorAll(selector);
-            _.each(children, function(i, el) {
+            _.each(children, function (i, el) {
                 elements.push(el);
             });
         });

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Els</title>
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
@@ -26,30 +27,30 @@
             </div>
             <div id="navDiv">
                 <ul>
-                    <li>
+                    <li data-section="topic1" class="active">
                         <div class="hoverLink">
                             <div>
-                                <i data-anim="floatUp" data-animlen="1000" id="castle" class="mdi mdi-castle"></i>
+                                <i id="castle" class="mdi mdi-castle"></i>
                             </div>
                             <div>
                                 Topic 1
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li data-section="topic2">
                         <div class="hoverLink">
                             <div>
-                                <i data-anim="floatUp"  data-animlen="1000" id="balloon" class="mdi mdi-airballoon"></i>
+                                <i  id="balloon" class="mdi mdi-airballoon"></i>
                             </div>
                             <div>
                                 Topic 2
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li data-section="topic3">
                         <div class="hoverLink">
                             <div>
-                                <i data-anim="takeOff" data-animlen="3000" id="rocket" class="mdi mdi-rocket"></i>
+                                <i id="rocket" class="mdi mdi-rocket"></i>
                             </div>
                             <div>
                                 Topic 3
@@ -75,6 +76,15 @@
         </div>
     </nav>
     <main id="bodyMain">
+        <section id="topic1" class="">
+            <h1>Topic 1</h1>
+        </section>
+        <section id="topic2" class="hidden">
+            <h1>Topic 2</h1>
+        </section>
+        <section id="topic3" class="hidden">
+            <h1>Topic 3</h1>
+        </section>
     </main>
 </body>
 

@@ -19,15 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     _lis.bind('click', function (event) {
         _lis.removeClass('active');
         _(this).addClass('active');
-    });
-
-    _lis.bind('mouseover', function (event) {
-        var _icon = _(this).children('i');
-        var anim = _icon.htmlElements[0].dataset.anim;
-        var animLength = _icon.htmlElements[0].dataset.animlen;
-        _icon.addClass(anim);
-        setTimeout(function() {
-            _icon.removeClass(anim);
-         }, parseInt(animLength));
+        var sectionName =_(this).data('section'); 
+        _('#bodyMain section').addClass('hidden');
+        _('#' + sectionName).removeClass('hidden');
     });
 });
