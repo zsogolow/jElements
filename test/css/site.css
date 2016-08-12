@@ -97,6 +97,7 @@ body {
     max-width: 500px;*/
     width: 400px;
     background: #fff;
+    z-index: 10;
 }
 
 #bodyNav #navContainer {
@@ -200,9 +201,38 @@ body {
     margin: 0 4px;
     vertical-align: middle;
     text-align: center;
+    cursor: pointer;
+    position: relative;
+    -webkit-filter: url("#goo");
+    filter: url("#goo");
+}
+
+#bodyNav #socialDiv .socialBubble> div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #dfdfdf;
+    z-index: 1;
+}
+
+#bodyNav #socialDiv .socialBubble:hover> div {
+    line-height: 24px;
+    top: -36px;
+    height: 28px;
+    width: 28px;
+    border: 2px solid #ccc;
+}
+
+#bodyNav #socialDiv .socialBubble:hover> div i {
+    font-size: 20px;
 }
 
 #bodyNav #socialDiv .socialBubble i {
+    top: 0;
+    bottom: 0;
+    margin: auto;
     vertical-align: middle;
     font-size: 24px;
 }
@@ -215,8 +245,7 @@ body {
     overflow-y: auto;
 }
 
-#bodyMain section {
-}
+#bodyMain section {}
 
 #bodyMain section h1 {
     text-align: center;
@@ -289,7 +318,7 @@ body {
     }
     #bodyNav #socialDiv {
         right: 0;
-        padding-right: 6px;
+        padding-right: 2%;
         text-align: right;
     }
     #bodyNav #socialDiv .socialBubble {
@@ -297,14 +326,28 @@ body {
         width: 24px;
         line-height: 20px;
     }
+    #bodyNav #socialDiv .socialBubble> div {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: #dfdfdf;
+        z-index: 1;
+    }
+    #bodyNav #socialDiv .socialBubble:hover> div {
+        line-height: 16px;
+        top: -28px;
+        height: 20px;
+        width: 20px;
+    }
     #bodyNav #socialDiv .socialBubble i {
-        vertical-align: middle;
         font-size: 18px;
     }
     #bodyMain {
         top: 130px;
-        left:0;
-        width:100%;
+        left: 0;
+        width: 100%;
         height: calc(100% - 130px);
     }
 }
@@ -341,6 +384,14 @@ body {
     #bodyNav #navDiv ul li i {
         font-size: 32px;
         vertical-align: middle;
+    }
+    #bodyNav #socialDiv .socialBubble:hover> div {
+        line-height: 16px;
+        top: 0px;
+        height: 20px;
+        width: 20px;
+        border:none;
+        font-size: 24px;
     }
     #bodyMain {
         top: 100px;
@@ -396,8 +447,7 @@ body {
         width: 100%;
         height: calc(100% - 90px);
     }
-
-    #bodyNav.open ~ #bodyMain {
+    #bodyNav.open~ #bodyMain {
         top: 236px;
         height: calc(100% - 236px);
     }
