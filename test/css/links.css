@@ -10,7 +10,7 @@
     bottom: 0px;
     left: -2px;
     right: -2px;
-    height: 2px;
+    height: 3px;
     background: #2196f3;
     z-index: -1;
 }
@@ -21,4 +21,5 @@ li:hover .hoverLink::after {
 
 li.active .hoverLink::after {
     display: block;
+    background: #ccc;
 }
