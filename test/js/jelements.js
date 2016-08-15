@@ -207,6 +207,23 @@ _.prototype = {
             });
         });
         return _(elements);
+    },
+
+    parent: function (selector) {
+        if (selector) {
+            if (this.htmlElements.length > 0) {
+                var parent = this.htmlElements[0].parentElement;
+                while (parent) {
+                    if (parent.matches(selector)) {
+                        break;
+                    }
+                    parent = parent.parentElement;
+                }
+                return _(parent);
+            }
+        } else {
+            return _(this.htmlElements[0].parentElement);
+        }
     }
 }
 

@@ -1,24 +1,36 @@
+.hoverLink > div {
+    position: relative;
+    z-index: 1;
+    display: flex;
+}
 .hoverLink {
     position: relative;
     z-index: 1;
 }
-
 .hoverLink::after {
     display: none;
     content: "";
     position: absolute;
     bottom: 0px;
-    left: -2px;
-    right: -2px;
+    left: 0px;
+    right: 0px;
     height: 2px;
     background: #2196f3;
     z-index: -1;
 }
 
+/*li:hover .hoverLink {
+    background: #ccc;
+}
+
+li.active .hoverLink{
+    background:#aaa;
+}*/
+
 li:hover .hoverLink::after {
-    display: block;
+    display: inline-block;
 }
 
 li.active .hoverLink::after {
-    display: block;
+    display: inline-block;
 }
