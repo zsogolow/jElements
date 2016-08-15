@@ -12,9 +12,15 @@
     content: "";
     position: absolute;
     bottom: 0px;
+<<<<<<< HEAD
     left: 0px;
     right: 0px;
     height: 2px;
+=======
+    left: -2px;
+    right: -2px;
+    height: 3px;
+>>>>>>> a2cd28a174222d9786e7c52633d603297a7bc319
     background: #2196f3;
     z-index: -1;
 }
@@ -32,5 +38,10 @@ li:hover .hoverLink::after {
 }
 
 li.active .hoverLink::after {
+<<<<<<< HEAD
     display: inline-block;
+=======
+    display: block;
+    background: #ccc;
+>>>>>>> a2cd28a174222d9786e7c52633d603297a7bc319
 }
