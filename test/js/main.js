@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     var _menuToggle = _('#menuToggle'),
         _bodyNav = _('#bodyNav'),
-        _lis = _('#bodyNav ul li');
+        _lis = _('#bodyNav ul li'),
+        _moreButton = _('#more');
 
     _menuToggle.bind('click', function () {
         _bodyNav.toggleClass('open');
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var sectionName = _(this).data('section');
         _('#bodyMain section').addClass('hidden');
         _('#' + sectionName).removeClass('hidden');
+        _bodyNav.removeClass('open');
+        _menuToggle.removeClass('open'); 
     });
 
     _lis.bind('mouseover', function (event) {

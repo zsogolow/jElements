@@ -255,6 +255,10 @@ li.active .hoverLink::before {
     border-radius: 50%;
     background: #dfdfdf;
     z-index: 1;
+    top: 0;
+    -webkit-transition: top 0.3s ease 0s;
+    -moz-transition: top 0.3s ease 0s;
+    transition: top 0.3s ease 0s;
 }
 
 #bodyNav #socialDiv .socialBubble:hover> div {
@@ -285,10 +289,53 @@ li.active .hoverLink::before {
     overflow-y: auto;
 }
 
-#bodyMain section {}
+#bodyMain section {
+    position: relative;
+    height: 100%;
+}
 
-#bodyMain section h1 {
+#bodyMain section p {
+    color: #FFF;
     text-align: center;
+    font-size: 24px;
+    padding: 104px 20% 64px 20%;
+    margin: 0;
+}
+
+#bodyMain .more {
+    height: 100%;
+    height: 100%;
+}
+
+#bodyMain .more:nth-child(odd) {
+    background: #800080;
+}
+
+#bodyMain .more:nth-child(even) {
+    background: #040404;
+}
+
+#bodyMain section a {
+    width: 64px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #040404;
+    color: #EFEFEF;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    -webkit-transition: background 0.4s ease 0s;
+    -moz-transition: background 0.4s ease 0s;
+    transition: background 0.4s ease 0s;
+}
+
+#bodyMain section a:hover {
+    background: #EFEFEF;
+    color: #040404;
 }
 
 .hidden {
@@ -308,8 +355,9 @@ li.active .hoverLink::before {
     bottom: 8px;
 }
 
-#bodyNav.open #navDiv {
-    padding-top: 10px;
+#bodyNav.open~ #bodyMain {
+    top: 190px;
+    height: calc(100% - 190px);
 }
 
 @media screen and (max-width: 74em) {
@@ -373,13 +421,12 @@ li.active .hoverLink::before {
         width: 24px;
         line-height: 20px;
     }
-
     #bodyNav #socialDiv .socialBubble:hover> div {
         line-height: 16px;
         top: 0px;
         height: 20px;
         width: 20px;
-        border:none;
+        border: none;
         font-size: 24px;
     }
     #bodyNav #socialDiv .socialBubble i {
@@ -446,6 +493,9 @@ li.active .hoverLink::before {
     }
     #bodyNav {
         height: 90px;
+        -webkit-transition: height 0.4s ease 0s;
+        -moz-transition: height 0.4s ease 0s;
+        transition: height 0.4s ease 0s;
     }
     #bodyNav #navContainer {
         display: block;
@@ -464,12 +514,20 @@ li.active .hoverLink::before {
         font-size: 12px;
     }
     #bodyNav #navDiv {
-        display: block;
+        visibility: hidden;
+        opacity: 0;
         width: 100%;
         text-align: center;
         right: 0;
         padding-top: 8px;
         position: relative;
+        -webkit-transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
+        -moz-transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
+        transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
+    }
+    #bodyNav.open #navDiv {
+        opacity: 1;
+        visibility: visible;
     }
     #bodyNav #navDiv ul li {
         max-width: 100%;
@@ -496,10 +554,9 @@ li.active .hoverLink::before {
         left: 0;
         width: 100%;
         height: calc(100% - 90px);
-    }
-    #bodyNav.open~ #bodyMain {
-        top: 236px;
-        height: calc(100% - 236px);
+        -webkit-transition: top 0.4s ease, height 0.4s ease;
+        -moz-transition: top 0.4s ease, height 0.4s ease;
+        transition: top 0.4s ease, height 0.4s ease;
     }
 }
 
