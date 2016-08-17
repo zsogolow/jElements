@@ -307,11 +307,11 @@ li.active .hoverLink::before {
     height: 100%;
 }
 
-#bodyMain .more:nth-child(odd) {
+#bodyMain section:nth-child(odd) {
     background: #800080;
 }
 
-#bodyMain .more:nth-child(even) {
+#bodyMain section:nth-child(even) {
     background: #040404;
 }
 
@@ -573,61 +573,51 @@ li.active .hoverLink::before {
 }
 
 @keyframes takeOff {
-    0% {
-        top: 0;
-        left: 4px;
+    0%{
+        transform: rotateZ(45deg);
+        left:0;
+        transition-timing-function: ease-in;
     }
-    10% {
-        top: -1px;
-        left: -4px;
-    }
-    20% {
-        top: -2px;
-        left: 4px;
-    }
-    28% {
-        top: -4px;
-        left: -4px;
-    }
-    36% {
-        top: -5px;
-        left: 4px;
-    }
-    42% {
-        top: -6px;
-        left: -4px;
-    }
-    48% {
-        top: -7px;
-        left: 4px;
-    }
-    52% {
-        top: -8px;
-        left: -4px;
-    }
-    56% {
-        top: -9px;
-        left: 4px;
-    }
-    60% {
-        top: -10px;
-        left: -4px;
-    }
-    100% {
-        left: 40px;
-        top: -100px;
+    /*80%{
+        transform: rotateZ(45deg);
+        transition-timing-function: ease-in-out;
+        left:120px;
+    }*/
+    100%{
+        transform: rotateZ(15deg);
+        left:120px;
+        transition-timing-function: ease-in;
     }
 }
 
 @keyframes floatUp {
     0% {
+        transform: rotateY(0deg);
         top: 0;
+        transition-timing-function: ease-in;
     }
     20% {
-        transform: rotateY(180deg);
     }
+    40% {
+        /*transform: rotateY(180deg);   */
+        transition-timing-function: ease-in;
+    }
+
+    60% {
+        transition-timing-function: ease-in;
+        top:-16px;
+    }
+
+    80% {
+        transform: rotateY(270deg);
+        transition-timing-function: ease-in;
+        top:-8px;
+    }
+
     100% {
-        top: -100px;
+        transform: rotateY(180deg);
+        transition-timing-function: ease-in;
+        top:0;
     }
 }
 

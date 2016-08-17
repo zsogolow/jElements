@@ -224,6 +224,17 @@ _.prototype = {
         } else {
             return _(this.htmlElements[0].parentElement);
         }
+    },
+
+    attr: function (attribute, value) {
+        if (!value && arguments.length == 1) {
+            return this.htmlElements.length > 0 ? this.htmlElements[0][attribute] : undefined;
+        } else {
+            this.each(function (i, el) {
+                el[attribute] = value;
+            });
+            return this;
+        }
     }
 }
 
