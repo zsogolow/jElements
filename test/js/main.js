@@ -1,10 +1,50 @@
-document.addEventListener('DOMContentLoaded', function () {
+_(document).bind('DOMContentLoaded', function () {
     var _menuToggle = _('#menuToggle'),
         _bodyNav = _('#bodyNav'),
         _bodyMain = _('#bodyMain'),
         _lis = _('#bodyNav ul li'),
         _moreButton = _('#moreButton'),
         _sections = _('#bodyMain section');
+
+    var smoothScroll = scroller();
+
+    // var wheelCount = 0;
+    // var lastDirection;
+    // var notScrolling = true;
+    // _bodyMain.bind('wheel', function (event) {
+    //     if (notScrolling) {
+    //         if (!lastDirection || lastDirection == event.deltaY) {
+    //             lastDirection = event.deltaY;
+    //         } else {
+    //             wheelCount = 0;
+    //             lastDirection = event.deltaY;
+    //         }
+    //         wheelCount++;
+
+    //         if (wheelCount % 3 == 0) {
+    //             var scroll = event.deltaY;
+
+    //             var _activeSection = _('#bodyMain section.active');
+    //             var index = parseInt(_activeSection.data('index'));
+    //             var _newSection;
+    //             if (scroll > 0) {
+    //                 // down
+    //                 _newSection = (index < (_sections.length - 1)) ? _('#bodyMain section[data-index="' + (index + 1) + '"]') : undefined;
+    //             } else {
+    //                 _newSection = (index > 0) ? _('#bodyMain section[data-index="' + (index - 1) + '"]') : undefined;
+    //             }
+
+    //             if (_newSection) {
+    //                 wheelCount = 0;
+    //                 notScrolling = false;
+    //                 smoothScroll.scrollToAnchor(_newSection, { speed: 800 }, function () {
+    //                     notScrolling = true;
+    //                 });
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // });
 
     _('#bodyMain').bind('scroll', function (event) {
         var scrollPosition = _bodyMain.attr('scrollTop');
@@ -18,25 +58,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (offsetTop <= scrollPosition + (offsetHeight / 2)
                 && offsetTop >= scrollPosition - (offsetHeight / 2)) {
-                console.log(el.id);
+                _sections.removeClass('active');
                 _lis.removeClass('active');
                 _lis.each(function (i, li) {
                     if (_(li).data('section') == el.id) {
                         _(li).addClass('active');
+                        _section.addClass('active');
                     }
                 });
             }
         });
-
     });
 
-    function scrollIntoView(section) {
-        var _section = _('#' + section);
-        _bodyMain.attr('scrollTop', _section.attr('offsetTop'));
-    }
-
     _moreButton.bind('click', function (evt) {
-        scrollIntoView('code');
+        smoothScroll.scrollToAnchor(_('#code'), { speed: 500 });
     });
 
     _menuToggle.bind('click', function () {
@@ -53,15 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     _lis.bind('click', function (event) {
-        _lis.removeClass('active');
-        _('#bodyMain section').removeClass('active');
-        _(this).addClass('active');
-        _('#' + _(this).data('section')).addClass('active');
         _bodyNav.removeClass('open');
         _menuToggle.removeClass('open');
 
-        sessionStorage.setItem('hash', _(this).data('section'));
-        scrollIntoView(sessionStorage.getItem('hash'));
+        var section = _(this).data('section');
+        sessionStorage.setItem('hash', section);
+        smoothScroll.scrollToAnchor(_('#' + section), { speed: 800 });
     });
 
     _lis.bind('mouseover', function (event) {

@@ -93,17 +93,17 @@
             </div>
         </div>
     </nav>
-    <main id="bodyMain">
-        <section id="hello" class="">
+    <main id="bodyMain" class="smoothScrolling">
+        <section id="hello" class="active" data-index="0">
             <div class="more">
                 <p>Software Developer. Coffee Enthusiast. Locally Grown in the Pacific Northwest.</p>
                 <a id="moreButton" data-name="more" class="scroll" data-speed="1000">More</a>
             </div>
         </section>
-        <section id="code">
+        <section id="code" data-index="1">
             <p>&lt;3 code</p>
         </section>
-        <section id="play">
+        <section id="play" data-index="2">
             <p>Play</p>
         </section>
     </main>
@@ -111,6 +111,7 @@
 
 <script src="/js/jelements.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
+<script src="/js/smoothScroll.js" type="text/javascript"></script>
 
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none;">
   <defs>

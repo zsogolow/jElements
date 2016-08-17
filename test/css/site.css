@@ -302,8 +302,11 @@ li.active .hoverLink::before {
     margin: 0;
 }
 
+#bodyMain.hijacked {
+    overflow-y: hidden;
+}
+
 #bodyMain .more {
-    height: 100%;
     height: 100%;
 }
 

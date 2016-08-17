@@ -1,16 +1,16 @@
 function _(selector) {
 
-    // every _ object will contain an
-    // array of its html elements
-    this.htmlElements = [];
-    this.length = 0;
-
     if (selector) {
         // Avoid clobbering the window scope:
         // return a new _ object if we're in the wrong scope
         if (window === this) {
             return new _(selector);
         }
+
+        // every _ object will contain an
+        // array of its html elements
+        this.htmlElements = [];
+        this.length = 0;
 
         // We're in the correct object scope:
         // Init our element object and return the object
@@ -38,6 +38,8 @@ function _(selector) {
             } else if (selector instanceof Document) {
                 this.htmlElements = [selector];
                 return this;
+            } else if (selector instanceof this.constructor) {
+                return selector;
             }
         } else if (typeof selector === 'string') {
             // query selector
