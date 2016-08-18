@@ -12,7 +12,6 @@ function scroller() {
 }
 
 scroller.prototype = {
-
     /*
         anchor => HTMLElement, valid selector
         options => {
@@ -39,7 +38,7 @@ scroller.prototype = {
         // Scroll the page by an increment, and check if it's time to stop
         var animateScroll = function () {
             if (smallStep) {
-                _scrollable.attr('scrollTop', _scrollable.attr('scrollTop') + (increment > 0 ? 1 : -1));
+                _scrollable.attr('scrollTop', _scrollable.attr('scrollTop') + smallStepIncrement/*(increment > 0 ? 1 : -1)*/);
             } else {
                 _scrollable.attr('scrollTop', _scrollable.attr('scrollTop') + increment);
             }
@@ -62,6 +61,7 @@ scroller.prototype = {
                     }
                 }
                 else if ((traveled > (anchorOffset - increment))) {
+                    smallStepIncrement = anchorOffset - traveled;
                     smallStep = true;
                 }
             };
@@ -81,6 +81,7 @@ scroller.prototype = {
                     }
                 }
                 else if (traveled < (anchorOffset - increment)) {
+                    smallStepIncrement = anchorOffset - traveled;
                     smallStep = true;
                 }
             };

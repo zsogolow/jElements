@@ -9,25 +9,22 @@ _(document).bind('DOMContentLoaded', function () {
     var smoothScroll = scroller();
 
     function init() {
-        window.addEventListener('scroll', function (event) {
-            if (!didScroll) {
-                didScroll = true;
-                setTimeout(scrollPage, 10);
-            }
-        }, false);
-    }
 
-    function scrollPage() {
-        didScroll = false;
     }
 
     var wheelCount = 0;
     var lastDirection;
     var notScrolling = true;
 
-    var isHijacked = _bodyMain.data('hijacked');
-    if (isHijacked == 'true') {
-        _bodyMain.bind('wheel', function (event) {
+    _('#hijackToggle').bind('click', function () {
+        var isJacked = _bodyMain.data('hijacked');
+        _bodyMain.data('hijacked', isJacked == 'true' ? false : true);
+        _(this).toggleClass('hijacked');
+    });
+
+    _bodyMain.bind('wheel', function (event) {
+        var isHijacked = _bodyMain.data('hijacked');
+        if (isHijacked == 'true') {
             if (notScrolling) {
                 if (!lastDirection || lastDirection == event.deltaY) {
                 } else {
@@ -59,8 +56,8 @@ _(document).bind('DOMContentLoaded', function () {
                 }
             }
             return false;
-        });
-    }
+        }
+    });
 
     _('#bodyMain').bind('scroll', function (event) {
         var scrollPosition = _bodyMain.attr('scrollTop');
@@ -102,6 +99,8 @@ _(document).bind('DOMContentLoaded', function () {
             _bodyNav.removeClass('open');
             _menuToggle.removeClass('open');
         }
+        // need to remain scrolled to the top of active section
+        _bodyMain.attr('scrollTop', (_('section.active').attr('offsetTop')));;
     });
 
     _lis.bind('click', function (event) {
