@@ -216,7 +216,9 @@ _.prototype = {
             if (this.htmlElements.length > 0) {
                 var parent = this.htmlElements[0].parentElement;
                 while (parent) {
-                    if (parent.matches(selector)) {
+                    var f = parent.matches || parent.webkitMatchesSelector || parent.mozMatchesSelector || parent.msMatchesSelector;
+                    var a = f.call(parent, selector);
+                    if (f.call(parent, selector)) { //parent.matches(selector)) {
                         break;
                     }
                     parent = parent.parentElement;

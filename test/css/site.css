@@ -449,7 +449,7 @@ li.active .hoverLink::before {
     }
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 54em) {
     #bodyNav {
         height: 100px;
     }
@@ -496,7 +496,7 @@ li.active .hoverLink::before {
     }
 }
 
-@media screen and (max-width: 42em) {
+@media screen and (max-width: 48em) {
     .hoverLink::before {
         left: 0px;
     }
@@ -591,11 +591,6 @@ li.active .hoverLink::before {
         left: 0;
         transition-timing-function: ease-in;
     }
-    /*80%{
-        transform: rotateZ(45deg);
-        transition-timing-function: ease-in-out;
-        left:120px;
-    }*/
     100% {
         transform: rotateZ(15deg);
         left: 120px;
@@ -609,9 +604,7 @@ li.active .hoverLink::before {
         top: 0;
         transition-timing-function: ease-in;
     }
-    20% {}
     40% {
-        /*transform: rotateY(180deg);   */
         transition-timing-function: ease-in;
     }
     60% {

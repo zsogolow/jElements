@@ -98,7 +98,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _(window).bind('resize', function (event) {
         var width = window.innerWidth / 16;
-        if (width >= 42) {
+        if (width >= 48) {
             _bodyNav.removeClass('open');
             _menuToggle.removeClass('open');
         }

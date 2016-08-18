@@ -52,7 +52,9 @@ scroller.prototype = {
             stopAnimation = function (force) {
                 var traveled = _scrollable.attr('scrollTop');
                 var offsetTop = _scrollable.attr('offsetTop');
-                if (force === true || traveled == (anchorOffset || _scrollable.attr('scrollHeight'))) {
+                if (force === true
+                    || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
+                    || traveled == _scrollable.attr('scrollHeight')) {
                     clearInterval(runAnimation);
                     this.prevAnimation = -1;
                     if (callback) {
@@ -69,7 +71,9 @@ scroller.prototype = {
             // Stop animation when you reach the anchor OR the top of the page
             stopAnimation = function (force) {
                 var traveled = _scrollable.attr('scrollTop');
-                if (force === true || traveled == (anchorOffset || 0)) {
+                if (force === true
+                    || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
+                    || traveled == 0) {
                     clearInterval(runAnimation);
                     this.prevAnimation = -1;
                     if (callback) {
