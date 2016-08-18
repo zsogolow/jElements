@@ -3,48 +3,64 @@ _(document).bind('DOMContentLoaded', function () {
         _bodyNav = _('#bodyNav'),
         _bodyMain = _('#bodyMain'),
         _lis = _('#bodyNav ul li'),
-        _moreButton = _('#moreButton'),
+        _moreButtons = _('.moreButton'),
         _sections = _('#bodyMain section');
 
     var smoothScroll = scroller();
 
-    // var wheelCount = 0;
-    // var lastDirection;
-    // var notScrolling = true;
-    // _bodyMain.bind('wheel', function (event) {
-    //     if (notScrolling) {
-    //         if (!lastDirection || lastDirection == event.deltaY) {
-    //             lastDirection = event.deltaY;
-    //         } else {
-    //             wheelCount = 0;
-    //             lastDirection = event.deltaY;
-    //         }
-    //         wheelCount++;
+    function init() {
+        window.addEventListener('scroll', function (event) {
+            if (!didScroll) {
+                didScroll = true;
+                setTimeout(scrollPage, 10);
+            }
+        }, false);
+    }
 
-    //         if (wheelCount % 3 == 0) {
-    //             var scroll = event.deltaY;
+    function scrollPage() {
+        didScroll = false;
+    }
 
-    //             var _activeSection = _('#bodyMain section.active');
-    //             var index = parseInt(_activeSection.data('index'));
-    //             var _newSection;
-    //             if (scroll > 0) {
-    //                 // down
-    //                 _newSection = (index < (_sections.length - 1)) ? _('#bodyMain section[data-index="' + (index + 1) + '"]') : undefined;
-    //             } else {
-    //                 _newSection = (index > 0) ? _('#bodyMain section[data-index="' + (index - 1) + '"]') : undefined;
-    //             }
+    var wheelCount = 0;
+    var lastDirection;
+    var notScrolling = true;
 
-    //             if (_newSection) {
-    //                 wheelCount = 0;
-    //                 notScrolling = false;
-    //                 smoothScroll.scrollToAnchor(_newSection, { speed: 800 }, function () {
-    //                     notScrolling = true;
-    //                 });
-    //             }
-    //         }
-    //     }
-    //     return false;
-    // });
+    var isHijacked = _bodyMain.data('hijacked');
+    if (isHijacked == 'true') {
+        _bodyMain.bind('wheel', function (event) {
+            if (notScrolling) {
+                if (!lastDirection || lastDirection == event.deltaY) {
+                } else {
+                    wheelCount = 0;
+                }
+                lastDirection = event.deltaY;
+                wheelCount++;
+
+                if (wheelCount % 3 == 0) {
+                    var scroll = event.deltaY;
+
+                    var _activeSection = _('#bodyMain section.active');
+                    var index = parseInt(_activeSection.data('index'));
+                    var _newSection;
+                    if (scroll > 0) {
+                        // down
+                        _newSection = (index < (_sections.length - 1)) ? _('#bodyMain section[data-index="' + (index + 1) + '"]') : undefined;
+                    } else {
+                        _newSection = (index > 0) ? _('#bodyMain section[data-index="' + (index - 1) + '"]') : undefined;
+                    }
+
+                    if (_newSection) {
+                        wheelCount = 0;
+                        notScrolling = false;
+                        smoothScroll.scrollToAnchor(_newSection, { speed: 800 }, function () {
+                            notScrolling = true;
+                        });
+                    }
+                }
+            }
+            return false;
+        });
+    }
 
     _('#bodyMain').bind('scroll', function (event) {
         var scrollPosition = _bodyMain.attr('scrollTop');
@@ -70,8 +86,9 @@ _(document).bind('DOMContentLoaded', function () {
         });
     });
 
-    _moreButton.bind('click', function (evt) {
-        smoothScroll.scrollToAnchor(_('#code'), { speed: 500 });
+    _moreButtons.bind('click', function (evt) {
+        var index = _(this).data('index');
+        smoothScroll.scrollToAnchor(_('#bodyMain section[data-index="' + (parseInt(index) + 1) + '"]'), { speed: 500 });
     });
 
     _menuToggle.bind('click', function () {
@@ -90,10 +107,10 @@ _(document).bind('DOMContentLoaded', function () {
     _lis.bind('click', function (event) {
         _bodyNav.removeClass('open');
         _menuToggle.removeClass('open');
-
         var section = _(this).data('section');
         sessionStorage.setItem('hash', section);
-        smoothScroll.scrollToAnchor(_('#' + section), { speed: 800 });
+        smoothScroll.scrollToAnchor(_('#' + section), { speed: 800 }, function () {
+        });
     });
 
     _lis.bind('mouseover', function (event) {
@@ -124,9 +141,6 @@ _(document).bind('DOMContentLoaded', function () {
             case "animationiteration":
                 break;
         }
-    }
-
-    function init() {
     }
 
     init();

@@ -306,6 +306,13 @@ li.active .hoverLink::before {
     overflow-y: hidden;
 }
 
+
+/*
+#bodyMain.hijacked section {
+    height: 100vh;
+    width: 100vw;
+}*/
+
 #bodyMain .more {
     height: 100%;
 }
@@ -315,7 +322,7 @@ li.active .hoverLink::before {
 }
 
 #bodyMain section:nth-child(even) {
-    background: #040404;
+    /*background: #040404;*/
 }
 
 #bodyMain section a {
@@ -350,17 +357,16 @@ li.active .hoverLink::before {
 }
 
 #bodyNav.open {
-    height: 190px;
+    height: 100vh;
+    background: #EFEFEF;
 }
 
 #bodyNav.open #socialDiv {
-    /*top: auto;*/
     bottom: 8px;
 }
 
-#bodyNav.open~ #bodyMain {
-    top: 190px;
-    height: calc(100% - 190px);
+#bodyMain[data-hijacked=true] {
+    overflow-y: hidden;
 }
 
 @media screen and (max-width: 74em) {
@@ -575,10 +581,14 @@ li.active .hoverLink::before {
     animation: spin 1s ease;
 }
 
+.pour {
+    animation: pour 1s ease;
+}
+
 @keyframes takeOff {
-    0%{
+    0% {
         transform: rotateZ(45deg);
-        left:0;
+        left: 0;
         transition-timing-function: ease-in;
     }
     /*80%{
@@ -586,9 +596,9 @@ li.active .hoverLink::before {
         transition-timing-function: ease-in-out;
         left:120px;
     }*/
-    100%{
+    100% {
         transform: rotateZ(15deg);
-        left:120px;
+        left: 120px;
         transition-timing-function: ease-in;
     }
 }
@@ -599,28 +609,24 @@ li.active .hoverLink::before {
         top: 0;
         transition-timing-function: ease-in;
     }
-    20% {
-    }
+    20% {}
     40% {
         /*transform: rotateY(180deg);   */
         transition-timing-function: ease-in;
     }
-
     60% {
         transition-timing-function: ease-in;
-        top:-16px;
+        top: -16px;
     }
-
     80% {
         transform: rotateY(270deg);
         transition-timing-function: ease-in;
-        top:-8px;
+        top: -8px;
     }
-
     100% {
         transform: rotateY(180deg);
         transition-timing-function: ease-in;
-        top:0;
+        top: 0;
     }
 }
 
@@ -630,5 +636,17 @@ li.active .hoverLink::before {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes pour {
+    0% {
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(60deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

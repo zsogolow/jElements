@@ -50,6 +50,18 @@
                             </div>
                         </div>
                     </li>
+                    <li data-section="coffee" data-anim="pour" data-animlength="1000">
+                        <div class="hoverLink">
+                            <div>
+                                <div>
+                                    <i id="coffeeMug" class="mdi mdi-kettle"></i>
+                                </div>
+                                <div>
+                                    Coffee
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li data-section="play" data-anim="takeOff" data-animlength="1000">
                         <div class="hoverLink">
                             <div>
@@ -93,18 +105,23 @@
             </div>
         </div>
     </nav>
-    <main id="bodyMain" class="smoothScrolling">
+    <main id="bodyMain" class="smoothScrolling" data-hijacked="false">
         <section id="hello" class="active" data-index="0">
             <div class="more">
                 <p>Software Developer. Coffee Enthusiast. Locally Grown in the Pacific Northwest.</p>
-                <a id="moreButton" data-name="more" class="scroll" data-speed="1000">More</a>
+                <a class="moreButton" data-index="0">More</a>
             </div>
         </section>
         <section id="code" data-index="1">
             <p>&lt;3 code</p>
+            <a class="moreButton" data-index="1">More</a>
         </section>
-        <section id="play" data-index="2">
-            <p>Play</p>
+        <section id="coffee" data-index="2">
+            <p>mmm</p>
+            <a class="moreButton" data-index="2">More</a>
+        </section>
+        <section id="play" data-index="3">
+            <p>lets play!</p>
         </section>
     </main>
 </body>
