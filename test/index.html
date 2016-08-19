@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Els</title>
+    <title>Hi, Zach</title>
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
@@ -106,15 +106,16 @@
         </div>
     </nav>
     <main id="bodyMain" class="smoothScrolling" data-hijacked="false">
-        <section id="hello" class="active" data-index="0">
+        <section id="hello" class="active" data-index="0" data-name="hello">
             <div class="more">
-                <p>Software Developer. Coffee Enthusiast. Locally Grown in the Pacific Northwest.</p>
+                <p class="header">Software Developer. Coffee Enthusiast.</p>
                 <a class="moreButton" data-index="0">More</a>
             </div>
         </section>
-        <section id="code" data-index="1">
-            <p>&lt;3 Code.</p>
-            <a class="moreButton" data-index="1">More</a>
+        <section id="code" data-index="1" data-name="code">
+            <p class="">I &lt;3 Code.</p>
+            <p>I especially like to these ones.</p>
+            <a class="moreButton" data-index="1"><i class="mdi mdi-chevron-double-down"></i></a>
             <div class="flexBox">
                 <div class="flexItem">
                     <h2>HTML</h2>
@@ -129,25 +130,25 @@
                     <i class="mdi mdi-language-css3"></i>
                 </div>
             </div>
-        </section>
-        <section id="coffee" data-index="2">
-            <p>Drink Coffee.</p>
-            <a class="moreButton" data-index="2">More</a>
-             <div class="flexBox">
+            <p>And these too...</p>
+            <div class="flexBox">
                 <div class="flexItem">
-                    <h2>Mmm.</h2>
+                    <h2>C#</h2>
+                    <i class="mdi mdi-language-csharp"></i>
+                </div>
+                <div class="flexItem">
+                    <h2>Java</h2>
                     <i class="mdi mdi-coffee"></i>
                 </div>
-             </div>
+            </div>
         </section>
-        <section id="play" data-index="3">
+        <section id="coffee" data-index="2" data-name="coffee">
+            <p>Powered by Coffee. And JavaScript.</p>
+            <a class="moreButton" data-index="2"><i class="mdi mdi-chevron-double-down"></i></a>
+        </section>
+        <section id="play" data-index="3" data-name="play">
             <p>Lets Play!</p>
-              <div class="flexBox">
-                <div class="flexItem">
-                    <h2>Wooo</h2>
-                    <i class="mdi mdi-dribbble"></i>
-                </div>
-             </div>
+            <a class="moreButton" data-index="-1"><i class="mdi mdi-chevron-double-up"></i></a>
         </section>
     </main>
     <div id="hijackToggle">
