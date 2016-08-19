@@ -136,12 +136,10 @@ _.prototype = {
     appear: function (scrollingParent, handler, timeout) {
         var _this = this;
 
-        function scroll() {
+        function scroll(scrollPosition) {
             _this.each(function (i, element) {
                 var parent = _(element).parent('section');
                 var elPosition = element.offsetTop + parent.attr('offsetTop');
-                // console.log(elPosition);
-                var scrollPosition = _(scrollingParent).attr('scrollTop');
                 var windowHeight = window.innerHeight;
 
                 if (elPosition <= scrollPosition + ((windowHeight / 4) * 3)) {
@@ -152,11 +150,21 @@ _.prototype = {
                 }
             });
         }
-      
-        scroll();
+
+        var lastScroll = _(scrollingParent).attr('scrollTop');
+        var scrolling = false;
+
+        scroll(lastScroll);
 
         _(scrollingParent).bind('scroll', function () {
-            scroll();
+            lastScroll = _(scrollingParent).attr('scrollTop');
+            if (!scrolling) {
+                window.requestAnimationFrame(function () {
+                    scroll(lastScroll);
+                    scrolling = false;
+                });
+            }
+            scrolling = true;
         });
     },
 
@@ -203,7 +211,7 @@ _.prototype = {
         console.log('todo');
         this.each(function (i, el) {
             var display = _(el).data('display');
-            el.style.display = display;
+            el.style.display = display || 'inline-block';
         });
         return this;
     },
@@ -211,8 +219,10 @@ _.prototype = {
         // TODO    
         console.log('todo');
         this.each(function (i, el) {
-            _(el).data('display', el.style.display);
-            el.style.display = 'none';
+            if (el.style.display != 'none') {
+                _(el).data('display', el.style.display);
+                el.style.display = 'none';
+            }
         });
         return this;
     },

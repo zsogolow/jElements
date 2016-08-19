@@ -44,11 +44,21 @@ body::before {
 }
 
 li:hover .hoverLink {
-    background: #ccc;
+    background: #dfdfdf;
 }
 
 li.active .hoverLink {
-    background: #aaa;
+    background: #dfdfdf;
+}
+
+#bodyNav #navDiv ul li:hover i {
+    color: #444;
+}
+
+#bodyNav #navDiv ul li.active,
+#bodyNav #navDiv ul li:hover,
+#bodyNav #navDiv ul li.active i {
+    color: #444;
 }
 
 li:hover .hoverLink::after {
@@ -149,7 +159,10 @@ li.active .hoverLink::before {
     max-width: 500px;*/
     width: 400px;
     background: #fff;
+    background: #009688;
+    /*background: #F44336;*/
     z-index: 10;
+    box-shadow: 0 0 10px;
 }
 
 #bodyNav #navContainer {
@@ -170,6 +183,7 @@ li.active .hoverLink::before {
 #bodyNav #logoDiv i {
     font-size: 124px;
     margin-top: 20px;
+    color: #FFF;
 }
 
 #bodyNav #logoDiv #headerContainer {
@@ -180,10 +194,13 @@ li.active .hoverLink::before {
 #bodyNav #logoDiv h4 {
     margin: 0;
     padding: 0;
+    color: #FFF;
+    font-weight: 900;
 }
 
 #bodyNav #logoDiv h4 {
-    color: #aaa;
+    color: #ffeb3b;
+    font-weight: 100;
 }
 
 #bodyNav #navDiv {
@@ -210,12 +227,14 @@ li.active .hoverLink::before {
     text-align: center;
     position: relative;
     display: block;
+    color: #FFF;
 }
 
 #bodyNav #navDiv ul li i {
     font-size: 36px;
     vertical-align: middle;
     position: relative;
+    color: #ccc;
 }
 
 #bodyNav #navDiv ul li div {
@@ -237,11 +256,11 @@ li.active .hoverLink::before {
     border-radius: 2px;
     margin-bottom: 4px;
     background: transparent;
-    border: 1px solid #fff;
+    border: 1px solid #040404;
 }
 
 .navBubble.active {
-    background: #ccc;
+    background: #040404;
 }
 
 #bodyNav #socialDiv {
@@ -268,6 +287,7 @@ li.active .hoverLink::before {
     position: relative;
     -webkit-filter: url("#goo");
     filter: url("#goo");
+    box-shadow: 0 0 2px;
 }
 
 #bodyNav #socialDiv .socialBubble> div {
@@ -283,7 +303,9 @@ li.active .hoverLink::before {
     -moz-transition: top 0.3s ease 0s;
     transition: top 0.3s ease 0s;
 }
-
+#bodyNav #socialDiv .socialBubble:hover {
+    box-shadow: 0 0 4px;
+}
 #bodyNav #socialDiv .socialBubble:hover> div {
     line-height: 24px;
     top: -36px;
@@ -316,6 +338,8 @@ li.active .hoverLink::before {
     position: relative;
     height: 100%;
     width: 100%;
+    background: #fff;
+    background: #607d8b;
     /*border-bottom: 1px solid #ccc;*/
 }
 
@@ -326,6 +350,7 @@ li.active .hoverLink::before {
 #bodyMain section p {
     display: inline-block;
     color: #FFF;
+    color: #040404;
     text-align: center;
     font-size: 24px;
     padding: 24px;
@@ -371,10 +396,6 @@ li.active .hoverLink::before {
     font-size: 72px;
 }
 
-#bodyMain section {
-    background: #040404;
-}
-
 #bodyMain section a {
     width: 36px;
     height: 36px;
@@ -382,7 +403,7 @@ li.active .hoverLink::before {
     text-align: center;
     background: transparent;
     /*border: 1px solid #EFEFEF;*/
-    color: #EFEFEF;
+    color: #040404;
     border-radius: 4px;
     position: absolute;
     left: 0;
@@ -396,8 +417,8 @@ li.active .hoverLink::before {
 }
 
 #bodyMain section a:hover {
-    background: #EFEFEF;
-    color: #040404;
+    background: #040404;
+    color: #FFF;
 }
 
 #bodyMain section[data-name=hello] a {
@@ -405,7 +426,13 @@ li.active .hoverLink::before {
     left: 0;
     right: 0;
     width: 64px;
-    border: 1px solid #EFEFEF;
+    color: #FFF;
+    background: #040404;
+}
+
+#bodyMain section[data-name=hello] a:hover {
+    color: #040404;
+    background: #FFF;
 }
 
 #bodyMain section a i {
@@ -423,6 +450,7 @@ li.active .hoverLink::before {
 #bodyNav.open {
     height: 100vh;
     background: #EFEFEF;
+    background: #F44336;
 }
 
 #bodyNav.open #socialDiv {
@@ -438,7 +466,7 @@ li.active .hoverLink::before {
     position: relative;
     width: 100px;
     left: 36px;
-    color: #fff;
+    color: #040404;
 }
 
 #hijackToggle {
@@ -448,7 +476,7 @@ li.active .hoverLink::before {
     left: 424px;
     width: 24px;
     height: 24px;
-    border: 1px solid #ccc;
+    border: 1px solid #040404;
     border-radius: 4px;
 }
 
@@ -458,7 +486,7 @@ li.active .hoverLink::before {
 }
 
 #hijackToggle.hijacked {
-    background: #ccc;
+    background: #040404;
 }
 
 #hijackToggle.hijacked label {
@@ -506,7 +534,7 @@ li.active .hoverLink::before {
     }
     #bodyNav #navDiv ul li {
         text-align: center;
-        min-width: 100px;
+        min-width: 60px;
         display: inline-block;
         height: 40px;
         line-height: 44px;
@@ -687,17 +715,37 @@ li.active .hoverLink::before {
     animation: pour 1s ease;
 }
 
-@keyframes takeOff {
-    /*0% {
-        transform: rotateZ(45deg);
-        left: 0;
-        transition-timing-function: ease-in;
+.fadeIn {
+    animation: fadeIn 0.2s forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.2s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        visibility: visible;
+        opacity: 1;
     }
-    100% {
-        transform: rotateZ(15deg);
-        left: 120px;
-        transition-timing-function: ease-in;
-    }*/
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes takeOff {
     from {
         transform: rotate(0) translateX(0px) translateY(0px);
         transform-origin: 0 15%;

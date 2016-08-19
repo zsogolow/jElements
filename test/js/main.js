@@ -28,7 +28,7 @@ _(document).bind('DOMContentLoaded', function () {
         }
     }
 
-    _('p').appear(_bodyMain, function(element) { _(element).toggleClass('pour')}, 10); 
+    _('p').appear(_bodyMain, function (element) { _(element).toggleClass('pour') }, 10);
 
     _hiJacker.bind('click', function () {
         isJacked = _bodyMain.data('hijacked') == 'true';
@@ -78,30 +78,47 @@ _(document).bind('DOMContentLoaded', function () {
         }
     });
 
+    var scrolling = false;
+    var lastKnownScroll = 0;
+    var a = undefined;
+    // window.requestAnimationFrame == requestAnimationFrame || msRequestAnimationFrame;
     _('#bodyMain').bind('scroll', function (event) {
+        _('.moreButton').removeClass('fadeIn');
+        _('.moreButton').addClass('fadeOut');
+        clearTimeout(a);
         var scrollPosition = _bodyMain.attr('scrollTop');
-        var height = _bodyMain.attr('scrollHeight');
-        // console.log(scrollPosition);
+        lastKnownScroll = scrollPosition;
+        if (!scrolling) {
+            window.requestAnimationFrame(function () {
+                var height = _bodyMain.attr('scrollHeight');
+                // console.log(scrollPosition);
+                _sections.each(function (i, el) {
+                    var _section = _(el);
+                    var offsetTop = _section.attr('offsetTop');
+                    var offsetHeight = _section.attr('offsetHeight');
 
-        _sections.each(function (i, el) {
-            var _section = _(el);
-            var offsetTop = _section.attr('offsetTop');
-            var offsetHeight = _section.attr('offsetHeight');
-
-            if (offsetTop <= scrollPosition + (offsetHeight / 2)
-                && offsetTop >= scrollPosition - (offsetHeight / 2)) {
-                _sections.removeClass('active');
-                _lis.removeClass('active');
-                _('.navBubble').removeClass('active');
-                _lis.each(function (i, li) {
-                    if (_(li).data('section') == el.id) {
-                        _(li).addClass('active');
-                        _section.addClass('active');
-                        _('.navBubble[data-index="' + _section.data('index') + '"]').addClass('active');
+                    if (offsetTop <= lastKnownScroll + (offsetHeight / 2)
+                        && offsetTop >= lastKnownScroll - (offsetHeight / 2)) {
+                        _sections.removeClass('active');
+                        _lis.removeClass('active');
+                        _('.navBubble').removeClass('active');
+                        _lis.each(function (i, li) {
+                            if (_(li).data('section') == el.id) {
+                                _(li).addClass('active');
+                                _section.addClass('active');
+                                _('.navBubble[data-index="' + _section.data('index') + '"]').addClass('active');
+                            }
+                        });
                     }
                 });
-            }
-        });
+                a = setTimeout(function () {
+                    _('.moreButton').removeClass('fadeOut');
+                    _('.moreButton').addClass('fadeIn');
+                }, 600);
+                scrolling = false;
+            });
+        }
+        scrolling = true;
     });
 
     _moreButtons.bind('click', function (evt) {
