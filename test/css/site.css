@@ -7,6 +7,19 @@ body {
     margin: 0;
 }
 
+body::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    content: 'mobile';
+    display: none;
+}
+
+@media only screen and (min-width: 48em) {
+    body::before {
+        /* never visible - this is used in jQuery to check the current MQ */
+        content: 'desktop';
+    }
+}
+
 .hoverLink> div {
     position: relative;
     z-index: 1;
@@ -210,16 +223,26 @@ li.active .hoverLink::before {
     /*display: inline-block;*/
 }
 
+.navBubbles {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    margin: auto 0;
+}
 
-/*#bodyNav #navDiv ul li:hover::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.navBubble {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    background: transparent;
+    border: 1px solid #fff;
+}
+
+.navBubble.active {
     background: #ccc;
-    height: 2px;
-}*/
+}
 
 #bodyNav #socialDiv {
     position: absolute;
@@ -293,14 +316,20 @@ li.active .hoverLink::before {
     position: relative;
     height: 100%;
     width: 100%;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+#bodyMain section div {
+    text-align: center;
 }
 
 #bodyMain section p {
+    display: inline-block;
     color: #FFF;
     text-align: center;
     font-size: 24px;
     padding: 24px;
-    margin: 0;
+    margin: 0 auto;
 }
 
 #bodyMain section p.header {
@@ -309,10 +338,6 @@ li.active .hoverLink::before {
 
 #bodyMain .more {
     height: 100%;
-}
-
-#bodyMain section:nth-child(odd) {
-    background: #800080;
 }
 
 .flexBox {
@@ -325,7 +350,7 @@ li.active .hoverLink::before {
 
 .flexItem {
     /*flex: 1;*/
-    /*flex-basis: 30%;*/
+    flex-basis: 30%;
     /*min-height: 124px;*/
     min-width: 124px;
     background-color: #EFEFEF;
@@ -346,22 +371,23 @@ li.active .hoverLink::before {
     font-size: 72px;
 }
 
-#bodyMain section:nth-child(even) {
-    /*background: #040404;*/
+#bodyMain section {
+    background: #040404;
 }
 
 #bodyMain section a {
-    width: 64px;
+    width: 36px;
     height: 36px;
     line-height: 36px;
     text-align: center;
-    background: #040404;
+    background: transparent;
+    /*border: 1px solid #EFEFEF;*/
     color: #EFEFEF;
     border-radius: 4px;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 5%;
+    bottom: 16px;
     margin: auto;
     cursor: pointer;
     -webkit-transition: background 0.4s ease 0s;
@@ -376,6 +402,10 @@ li.active .hoverLink::before {
 
 #bodyMain section[data-name=hello] a {
     bottom: auto;
+    left: 0;
+    right: 0;
+    width: 64px;
+    border: 1px solid #EFEFEF;
 }
 
 #bodyMain section a i {
@@ -408,6 +438,7 @@ li.active .hoverLink::before {
     position: relative;
     width: 100px;
     left: 36px;
+    color: #fff;
 }
 
 #hijackToggle {
@@ -427,7 +458,7 @@ li.active .hoverLink::before {
 }
 
 #hijackToggle.hijacked {
-    background: #040404;
+    background: #ccc;
 }
 
 #hijackToggle.hijacked label {
@@ -513,11 +544,10 @@ li.active .hoverLink::before {
         height: calc(100% - 130px);
     }
     #hijackToggle {
-        left: auto;
-        right: 24px;
+        left: 16px;
     }
     #hijackToggle label {
-        left: -100px;
+        /*left: -100px;*/
     }
 }
 

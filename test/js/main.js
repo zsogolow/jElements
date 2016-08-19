@@ -4,27 +4,46 @@ _(document).bind('DOMContentLoaded', function () {
         _bodyMain = _('#bodyMain'),
         _lis = _('#bodyNav ul li'),
         _moreButtons = _('.moreButton'),
-        _sections = _('#bodyMain section');
+        _sections = _('#bodyMain section'),
+        _hiJacker = _('#hijackToggle');
 
     var smoothScroll = scroller();
-
-    function init() {
-
-    }
 
     var wheelCount = 0;
     var lastDirection;
     var notScrolling = true;
+    var isJacked = false;
+    var isMobile = _.deviceType() == 'mobile';
 
-    _('#hijackToggle').bind('click', function () {
-        var isJacked = _bodyMain.data('hijacked');
-        _bodyMain.data('hijacked', isJacked == 'true' ? false : true);
-        _(this).toggleClass('hijacked');
+    function init() {
+        if (isMobile) {
+            _hiJacker.remove();
+            _bodyMain.data('hijacked', false);
+        }
+        isJacked = _bodyMain.data('hijacked') == 'true';
+        if (isJacked) {
+            _hiJacker.addClass('hijacked');
+        } else {
+            _hiJacker.removeClass('hijacked');
+        }
+    }
+
+    _('p').appear(_bodyMain, function(element) { _(element).toggleClass('pour')}, 10); 
+
+    _hiJacker.bind('click', function () {
+        isJacked = _bodyMain.data('hijacked') == 'true';
+        isJacked = !isJacked;
+        _bodyMain.data('hijacked', isJacked);
+
+        if (isJacked) {
+            _(this).addClass('hijacked');
+        } else {
+            _(this).removeClass('hijacked');
+        }
     });
 
     _bodyMain.bind('wheel', function (event) {
-        var isHijacked = _bodyMain.data('hijacked');
-        if (isHijacked == 'true') {
+        if (isJacked == true) {
             if (notScrolling) {
                 if (!lastDirection || lastDirection == event.deltaY) {
                 } else {
@@ -62,7 +81,7 @@ _(document).bind('DOMContentLoaded', function () {
     _('#bodyMain').bind('scroll', function (event) {
         var scrollPosition = _bodyMain.attr('scrollTop');
         var height = _bodyMain.attr('scrollHeight');
-        console.log(scrollPosition);
+        // console.log(scrollPosition);
 
         _sections.each(function (i, el) {
             var _section = _(el);
@@ -73,10 +92,12 @@ _(document).bind('DOMContentLoaded', function () {
                 && offsetTop >= scrollPosition - (offsetHeight / 2)) {
                 _sections.removeClass('active');
                 _lis.removeClass('active');
+                _('.navBubble').removeClass('active');
                 _lis.each(function (i, li) {
                     if (_(li).data('section') == el.id) {
                         _(li).addClass('active');
                         _section.addClass('active');
+                        _('.navBubble[data-index="' + _section.data('index') + '"]').addClass('active');
                     }
                 });
             }
@@ -101,6 +122,7 @@ _(document).bind('DOMContentLoaded', function () {
         }
         // need to remain scrolled to the top of active section
         _bodyMain.attr('scrollTop', (_('section.active').attr('offsetTop')));;
+
     });
 
     _lis.bind('click', function (event) {

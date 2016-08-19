@@ -82,6 +82,11 @@ _.prototype.constructor.each = function (context, handler) {
     }
 }
 
+_.prototype.constructor.deviceType = function () {
+    //detect if desktop/mobile
+    return window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+}
+
 _.prototype = {
 
     each: function (handler) {
@@ -128,6 +133,32 @@ _.prototype = {
         });
         return this;
     },
+    appear: function (scrollingParent, handler, timeout) {
+        var _this = this;
+
+        function scroll() {
+            _this.each(function (i, element) {
+                var parent = _(element).parent('section');
+                var elPosition = element.offsetTop + parent.attr('offsetTop');
+                // console.log(elPosition);
+                var scrollPosition = _(scrollingParent).attr('scrollTop');
+                var windowHeight = window.innerHeight;
+
+                if (elPosition <= scrollPosition + ((windowHeight / 4) * 3)) {
+                    if (!_(element).data('appeared')) {
+                        _(element).data('appeared', 'true');
+                        setTimeout(handler, timeout ? timeout : 0, element);
+                    }
+                }
+            });
+        }
+      
+        scroll();
+
+        _(scrollingParent).bind('scroll', function () {
+            scroll();
+        });
+    },
 
     // events
     bind: function (event, handler, capture) {
@@ -171,6 +202,8 @@ _.prototype = {
         // TODO    
         console.log('todo');
         this.each(function (i, el) {
+            var display = _(el).data('display');
+            el.style.display = display;
         });
         return this;
     },
@@ -178,12 +211,20 @@ _.prototype = {
         // TODO    
         console.log('todo');
         this.each(function (i, el) {
+            _(el).data('display', el.style.display);
+            el.style.display = 'none';
         });
         return this;
     },
     html: function (innerHTML) {
         this.each(function (i, el) {
             el.innerHTML = innerHTML;
+        });
+        return this;
+    },
+    remove: function () {
+        this.each(function (i, el) {
+            el.parentElement.removeChild(el);
         });
         return this;
     },
