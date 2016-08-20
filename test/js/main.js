@@ -28,7 +28,9 @@ _(document).bind('DOMContentLoaded', function () {
         }
     }
 
-    _('p').appear(_bodyMain, function (element) { _(element).toggleClass('pour') }, 10);
+    _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
+    _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
+    _('.fadeLabel').appear(_bodyMain, function(element) {_(element).toggleClass('fade-in')}, 10);
 
     _hiJacker.bind('click', function () {
         isJacked = _bodyMain.data('hijacked') == 'true';
@@ -133,7 +135,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _(window).bind('resize', function (event) {
         var width = window.innerWidth / 16;
-        if (width >= 48) {
+        if (width >= 34.5) {
             _bodyNav.removeClass('open');
             _menuToggle.removeClass('open');
         }

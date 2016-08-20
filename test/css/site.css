@@ -1,6 +1,6 @@
 html,
 body {
-    background: #444;
+    background: #222;
     font-family: 'Maven Pro', sans-serif;
     height: 100%;
     padding: 0;
@@ -31,42 +31,28 @@ body::before {
     z-index: 1;
 }
 
-.hoverLink::before {
+.hoverLink::after {
     display: none;
     content: "";
     position: absolute;
-    bottom: 0px;
-    left: 0px;
-    top: 0;
-    width: 10px;
-    background: #2196f3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #90caf9;
     z-index: -1;
 }
 
-li:hover .hoverLink {
-    background: #dfdfdf;
-}
-
-li.active .hoverLink {
-    background: #dfdfdf;
-}
-
 #bodyNav #navDiv ul li:hover i {
-    color: #444;
+    color: #fff;
+    opacity: 1;
 }
 
 #bodyNav #navDiv ul li.active,
 #bodyNav #navDiv ul li:hover,
 #bodyNav #navDiv ul li.active i {
-    color: #444;
-}
-
-li:hover .hoverLink::after {
-    display: inline-block;
-}
-
-li.active .hoverLink::before {
-    display: inline-block;
+    color: #fff;
+    opacity: 1;
 }
 
 #menuToggle {
@@ -160,7 +146,9 @@ li.active .hoverLink::before {
     width: 400px;
     background: #fff;
     background: #009688;
+    background: #607d8b;
     /*background: #F44336;*/
+    background: #3f51b5;
     z-index: 10;
     box-shadow: 0 0 10px;
 }
@@ -200,6 +188,7 @@ li.active .hoverLink::before {
 
 #bodyNav #logoDiv h4 {
     color: #ffeb3b;
+    color: #90caf9;
     font-weight: 100;
 }
 
@@ -208,7 +197,7 @@ li.active .hoverLink::before {
     top: 250px;
     left: 0;
     right: 0;
-    min-height: 100px;
+    /*min-height: 100px;*/
 }
 
 #bodyNav #navDiv ul {
@@ -221,24 +210,25 @@ li.active .hoverLink::before {
     height: 48px;
     line-height: 48px;
     /*padding-left: 4px;*/
-    padding-bottom: 4px;
+    /*padding-bottom: 4px;*/
     cursor: pointer;
     /*border-bottom: 1px solid #ccc;*/
     text-align: center;
     position: relative;
     display: block;
     color: #FFF;
+    opacity: 0.65;
 }
 
 #bodyNav #navDiv ul li i {
     font-size: 36px;
     vertical-align: middle;
     position: relative;
-    color: #ccc;
+    color: #fff;
 }
 
 #bodyNav #navDiv ul li div {
-    padding-left: 24px;
+    padding-left: 12px;
     /*display: inline-block;*/
 }
 
@@ -303,9 +293,11 @@ li.active .hoverLink::before {
     -moz-transition: top 0.3s ease 0s;
     transition: top 0.3s ease 0s;
 }
+
 #bodyNav #socialDiv .socialBubble:hover {
     box-shadow: 0 0 4px;
 }
+
 #bodyNav #socialDiv .socialBubble:hover> div {
     line-height: 24px;
     top: -36px;
@@ -336,25 +328,82 @@ li.active .hoverLink::before {
 
 #bodyMain section {
     position: relative;
-    height: 100%;
-    width: 100%;
+    min-height: calc(100% - 48px);
+    /*width: 100%;*/
     background: #fff;
-    background: #607d8b;
+    padding: 24px 36px;
+    /*background: #607d8b;*/
+    /*background: #009688;*/
     /*border-bottom: 1px solid #ccc;*/
 }
 
-#bodyMain section div {
+#bodyMain section:nth-of-type(1) {
     text-align: center;
 }
 
-#bodyMain section p {
-    display: inline-block;
+#bodyMain section .sectionBody {
+    padding: 6px 12px;
+    min-height: 40px;
+}
+
+#bodyMain section .sectionHeader {
+    padding: 6px 12px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+
+#bodyMain section .sectionHeader p {}
+
+#bodyMain section p.headerLabel,
+#bodyMain section p.subLabel {
     color: #FFF;
     color: #040404;
-    text-align: center;
-    font-size: 24px;
+    font-size: 36px;
     padding: 24px;
     margin: 0 auto;
+}
+
+#bodyMain section p.headerLabel {
+    display: inline-block;
+    font-weight: 900;
+}
+
+#bodyMain section p.subLabel {
+    display: block;
+    font-size: 16px;
+    padding-top: 0;
+    margin: 0 auto;
+    position: relative;
+}
+
+#bodyMain section .tiltLabel {}
+
+#bodyMain section .tiltLabel.tilt {
+    animation: pour 1s ease;
+}
+
+#bodyMain section .slideLabel {
+    left: -1000px;
+    -webkit-transition: left 1s ease 0s;
+    -moz-transition: left 1s ease 0s;
+    transition: left 1s ease 0s;
+}
+
+#bodyMain section .slideLabel.slide-in {
+    left: 0;
+}
+
+#bodyMain section .fadeLabel {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s ease, opacity 1s ease 0.6s;
+    -moz-transition: visibility 0s ease, opacity 1s ease 0.6s;
+    transition: visibility 0s ease, opacity 1s ease 0.6s;
+}
+
+#bodyMain section .fadeLabel.fade-in {
+    visibility: visible;
+    opacity: 1;
 }
 
 #bodyMain section p.header {
@@ -449,12 +498,8 @@ li.active .hoverLink::before {
 
 #bodyNav.open {
     height: 100vh;
-    background: #EFEFEF;
-    background: #F44336;
-}
-
-#bodyNav.open #socialDiv {
-    bottom: 8px;
+    /*background: #EFEFEF;
+    background: #F44336;*/
 }
 
 #bodyMain[data-hijacked=true] {
@@ -480,22 +525,25 @@ li.active .hoverLink::before {
     border-radius: 4px;
 }
 
-#hijackToggle:hover label {
+#hijackToggle:hover label:nth-of-type(1) {
     display: block;
-    content: "jack me";
 }
 
 #hijackToggle.hijacked {
     background: #040404;
 }
 
-#hijackToggle.hijacked label {
+#hijackToggle.hijacked:hover label:nth-of-type(1) {
+    display: none;
+}
+
+#hijackToggle.hijacked label:nth-of-type(2) {
     display: block;
 }
 
-@media screen and (max-width: 74em) {
-    .hoverLink::before {
-        left: -10px;
+@media screen and (max-width: 64em) {
+    li.active .hoverLink::after {
+        display: inline-block;
     }
     #bodyNav {
         top: 0;
@@ -504,7 +552,7 @@ li.active .hoverLink::before {
         right: 0;
         width: 100%;
         max-width: 100%;
-        height: 130px;
+        height: 108px;
     }
     #bodyNav #navContainer {
         overflow: hidden;
@@ -519,6 +567,7 @@ li.active .hoverLink::before {
     #bodyNav #logoDiv i {
         vertical-align: middle;
         margin-top: 0px;
+        font-size: 108px;
     }
     #bodyNav #logoDiv h1 {
         display: inline-block;
@@ -528,16 +577,18 @@ li.active .hoverLink::before {
     }
     #bodyNav #navDiv {
         left: auto;
-        top: 0px;
+        top: auto;
+        bottom: 0;
         right: 10px;
-        line-height: 100px;
     }
     #bodyNav #navDiv ul li {
         text-align: center;
         min-width: 60px;
         display: inline-block;
-        height: 40px;
-        line-height: 44px;
+        height: 56px;
+        line-height: 56px;
+        /*height: 100px;*/
+        /*line-height: 130px;*/
     }
     #bodyNav #navDiv ul li div {
         padding-left: 0;
@@ -548,6 +599,8 @@ li.active .hoverLink::before {
         right: 0;
         padding-right: 2%;
         text-align: right;
+        top: 12px;
+        bottom: auto;
     }
     #bodyNav #socialDiv .socialBubble {
         height: 24px;
@@ -566,7 +619,7 @@ li.active .hoverLink::before {
         font-size: 18px;
     }
     #bodyMain {
-        top: 130px;
+        top: 108px;
         left: 0;
         width: 100%;
         height: calc(100% - 130px);
@@ -579,7 +632,7 @@ li.active .hoverLink::before {
     }
 }
 
-@media screen and (max-width: 54em) {
+@media screen and (max-width: 42em) {
     #bodyNav {
         height: 100px;
     }
@@ -597,12 +650,13 @@ li.active .hoverLink::before {
     }
     #bodyNav #navDiv {
         right: 10px;
-        line-height: 70px;
     }
     #bodyNav #navDiv ul li {
-        font-size: 14px;
-        height: 32px;
-        line-height: 40px;
+        font-size: 16px;
+        height: 48px;
+        line-height: 48px;
+        /*height: 70px;*/
+        /*line-height: 130px;*/
     }
     #bodyNav #navDiv ul li div {
         padding-left: 0;
@@ -626,9 +680,9 @@ li.active .hoverLink::before {
     }
 }
 
-@media screen and (max-width: 48em) {
-    .hoverLink::before {
-        left: 0px;
+@media screen and (max-width: 34.5em) {
+    li.active .hoverLink::after {
+        display: none;
     }
     #bodyNav {
         height: 90px;
@@ -671,9 +725,12 @@ li.active .hoverLink::before {
     #bodyNav #navDiv ul li {
         max-width: 100%;
         display: block;
-        font-size: 12px;
-        height: 28px;
-        line-height: 28px;
+        font-size: 18px;
+        height: 48px;
+        line-height: 48px;
+    }
+    #bodyNav #navDiv ul li i {
+        font-size: 44px;
     }
     #bodyNav #navDiv ul li div {
         padding-left: 24px;
@@ -715,12 +772,16 @@ li.active .hoverLink::before {
     animation: pour 1s ease;
 }
 
+.fadeIn-slow {
+    animation: fadeIn 1.6s forwards;
+}
+
 .fadeIn {
-    animation: fadeIn 0.2s forwards;
+    animation: fadeIn 0.6s forwards;
 }
 
 .fadeOut {
-    animation: fadeOut 0.2s forwards;
+    animation: fadeOut 0.6s forwards;
 }
 
 @keyframes fadeOut {
