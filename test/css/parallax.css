@@ -1,0 +1,7 @@
+.parallax-scroll-container {
+    position: relative;
+}
+
+.parallax {
+    position: absolute;
+}

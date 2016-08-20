@@ -9,6 +9,8 @@ _(document).bind('DOMContentLoaded', function () {
 
     var smoothScroll = scroller();
 
+    var parallax = parallax();
+
     var wheelCount = 0;
     var lastDirection;
     var notScrolling = true;
