@@ -622,7 +622,7 @@ body::before {
         top: 108px;
         left: 0;
         width: 100%;
-        height: calc(100% - 130px);
+        height: calc(100% - 108px);
     }
     #hijackToggle {
         left: 16px;
