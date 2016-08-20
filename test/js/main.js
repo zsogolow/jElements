@@ -1,10 +1,10 @@
 _(document).bind('DOMContentLoaded', function () {
     var _menuToggle = _('#menuToggle'),
         _bodyNav = _('.navigation-container'),
-        _bodyMain = _('.body-main '),
+        _bodyMain = _('.body-main'),
         _lis = _('.navigation-list-container ul li'),
         _moreButtons = _('.moreButton'),
-        _sections = _('.body-main  section'),
+        _sections = _('.body-main section'),
         _hiJacker = _('#hijackToggle');
 
     var smoothScroll = scroller();
@@ -57,14 +57,14 @@ _(document).bind('DOMContentLoaded', function () {
                 if (wheelCount % 3 == 0) {
                     var scroll = event.deltaY;
 
-                    var _activeSection = _('.body-main  section.active');
+                    var _activeSection = _('.body-main section.active');
                     var index = parseInt(_activeSection.data('index'));
                     var _newSection;
                     if (scroll > 0) {
                         // down
-                        _newSection = (index < (_sections.length - 1)) ? _('.body-main  section[data-index="' + (index + 1) + '"]') : undefined;
+                        _newSection = (index < (_sections.length - 1)) ? _('.body-main section[data-index="' + (index + 1) + '"]') : undefined;
                     } else {
-                        _newSection = (index > 0) ? _('.body-main  section[data-index="' + (index - 1) + '"]') : undefined;
+                        _newSection = (index > 0) ? _('.body-main section[data-index="' + (index - 1) + '"]') : undefined;
                     }
 
                     if (_newSection) {
@@ -84,7 +84,7 @@ _(document).bind('DOMContentLoaded', function () {
     var lastKnownScroll = 0;
     var a = undefined;
     // window.requestAnimationFrame == requestAnimationFrame || msRequestAnimationFrame;
-    _('.body-main ').bind('scroll', function (event) {
+    _('.body-main').bind('scroll', function (event) {
         _('.moreButton').removeClass('fadeIn');
         _('.moreButton').addClass('fadeOut');
         clearTimeout(a);
@@ -125,7 +125,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _moreButtons.bind('click', function (evt) {
         var index = _(this).data('index');
-        smoothScroll.scrollToAnchor(_('.body-main  section[data-index="' + (parseInt(index) + 1) + '"]'), { speed: 500 });
+        smoothScroll.scrollToAnchor(_('.body-main section[data-index="' + (parseInt(index) + 1) + '"]'), { speed: 500 });
     });
 
     _menuToggle.bind('click', function () {

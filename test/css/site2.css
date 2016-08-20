@@ -43,14 +43,14 @@ body::before {
     z-index: -1;
 }
 
-.navigation-list-container ul li:hover i {
+#bodyNav #navDiv ul li:hover i {
     color: #fff;
     opacity: 1;
 }
 
-.navigation-list-container ul li.active,
-.navigation-list-container ul li:hover,
-.navigation-list-container ul li.active i {
+#bodyNav #navDiv ul li.active,
+#bodyNav #navDiv ul li:hover,
+#bodyNav #navDiv ul li.active i {
     color: #fff;
     opacity: 1;
 }
@@ -135,28 +135,32 @@ body::before {
     transform: rotate(-135deg);
 }
 
-.navigation-container {
+#bodyNav {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
+    /*min-width: 300px;
+    width: 30%;
+    max-width: 500px;*/
     width: 40%;
     background: #fff;
     background: #009688;
     background: #607d8b;
-    background: #F44336;
-    /*background: #3f51b5;*/
+    /*background: #F44336;*/
+    background: #3f51b5;
     z-index: 10;
+    /*box-shadow: 0 0 10px;*/
 }
 
-.navigation-container>div {
+#bodyNav #navContainer {
     position: relative;
     width: 100%;
     height: 100%;
-    /*overflow: auto;*/
+    overflow: auto;
 }
 
-.navigation-logo-container {
+#bodyNav #logoDiv {
     position: absolute;
     top: 0;
     left: 0;
@@ -164,44 +168,51 @@ body::before {
     text-align: center;
 }
 
-.navigation-logo-container i {
+#bodyNav #logoDiv i {
     font-size: 124px;
     margin-top: 20px;
     color: #FFF;
 }
 
-.navigation-logo-container h1 {
+#bodyNav #logoDiv #headerContainer {
+    display: block;
+}
+
+#bodyNav #logoDiv h1,
+#bodyNav #logoDiv h4 {
     margin: 0;
     padding: 0;
     color: #FFF;
     font-weight: 900;
 }
 
-.navigation-logo-container h4 {
-    margin: 0;
-    padding: 0;
+#bodyNav #logoDiv h4 {
     color: #ffeb3b;
     color: #90caf9;
     font-weight: 100;
 }
 
-.navigation-list-container {
+#bodyNav #navDiv {
     position: absolute;
     top: 250px;
     left: 0;
     right: 0;
+    /*min-height: 100px;*/
 }
 
-.navigation-list-container ul {
+#bodyNav #navDiv ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.navigation-list-container ul li {
+#bodyNav #navDiv ul li {
     height: 48px;
     line-height: 48px;
+    /*padding-left: 4px;*/
+    /*padding-bottom: 4px;*/
     cursor: pointer;
+    /*border-bottom: 1px solid #ccc;*/
     text-align: center;
     position: relative;
     display: block;
@@ -209,15 +220,16 @@ body::before {
     opacity: 0.65;
 }
 
-.navigation-list-container ul li i {
+#bodyNav #navDiv ul li i {
     font-size: 36px;
     vertical-align: middle;
     position: relative;
     color: #fff;
 }
 
-.navigation-list-container ul li div {
+#bodyNav #navDiv ul li div {
     padding-left: 12px;
+    /*display: inline-block;*/
 }
 
 .navBubbles {
@@ -241,7 +253,7 @@ body::before {
     background: #040404;
 }
 
-.navigation-container .social-container {
+#bodyNav #socialDiv {
     position: absolute;
     bottom: 0;
     padding-bottom: 8px;
@@ -250,7 +262,7 @@ body::before {
     text-align: center;
 }
 
-.navigation-container .social-container .socialBubble {
+#bodyNav #socialDiv .socialBubble {
     display: inline-block;
     width: 36px;
     height: 36px;
@@ -268,7 +280,7 @@ body::before {
     box-shadow: 0 0 2px;
 }
 
-.navigation-container .social-container .socialBubble> div {
+#bodyNav #socialDiv .socialBubble> div {
     position: absolute;
     left: 0;
     right: 0;
@@ -282,11 +294,11 @@ body::before {
     transition: top 0.3s ease 0s;
 }
 
-.navigation-container .social-container .socialBubble:hover {
+#bodyNav #socialDiv .socialBubble:hover {
     box-shadow: 0 0 4px;
 }
 
-.navigation-container .social-container .socialBubble:hover> div {
+#bodyNav #socialDiv .socialBubble:hover> div {
     line-height: 24px;
     top: -36px;
     height: 28px;
@@ -294,11 +306,11 @@ body::before {
     border: 2px solid #ccc;
 }
 
-.navigation-container .social-container .socialBubble:hover> div i {
+#bodyNav #socialDiv .socialBubble:hover> div i {
     font-size: 20px;
 }
 
-.navigation-container .social-container .socialBubble i {
+#bodyNav #socialDiv .socialBubble i {
     top: 0;
     bottom: 0;
     margin: auto;
@@ -306,7 +318,7 @@ body::before {
     font-size: 24px;
 }
 
-.body-main {
+#bodyMain {
     position: relative;
     left: 40%;
     width: calc(100% - 40%);
@@ -314,32 +326,36 @@ body::before {
     overflow-y: auto;
 }
 
-.body-main section {
+#bodyMain section {
     position: relative;
     min-height: calc(100% - 48px);
+    /*width: 100%;*/
     background: #fff;
     padding: 24px 36px;
+    /*background: #607d8b;*/
+    /*background: #009688;*/
+    /*border-bottom: 1px solid #ccc;*/
 }
 
-.body-main section:nth-of-type(1) {
+#bodyMain section:nth-of-type(1) {
     text-align: center;
 }
 
-.body-main section .sectionBody {
+#bodyMain section .sectionBody {
     padding: 6px 12px;
     min-height: 40px;
 }
 
-.body-main section .sectionHeader {
+#bodyMain section .sectionHeader {
     padding: 6px 12px;
     border-top: 2px solid #ccc;
     border-bottom: 2px solid #ccc;
 }
 
-.body-main section .sectionHeader p {}
+#bodyMain section .sectionHeader p {}
 
-.body-main section p.headerLabel,
-.body-main section p.subLabel {
+#bodyMain section p.headerLabel,
+#bodyMain section p.subLabel {
     color: #FFF;
     color: #040404;
     font-size: 36px;
@@ -347,12 +363,12 @@ body::before {
     margin: 0 auto;
 }
 
-.body-main section p.headerLabel {
+#bodyMain section p.headerLabel {
     display: inline-block;
     font-weight: 900;
 }
 
-.body-main section p.subLabel {
+#bodyMain section p.subLabel {
     display: block;
     font-size: 16px;
     padding-top: 0;
@@ -360,24 +376,24 @@ body::before {
     position: relative;
 }
 
-.body-main section .tiltLabel {}
+#bodyMain section .tiltLabel {}
 
-.body-main section .tiltLabel.tilt {
+#bodyMain section .tiltLabel.tilt {
     animation: pour 1s ease;
 }
 
-.body-main section .slideLabel {
+#bodyMain section .slideLabel {
     left: -1000px;
     -webkit-transition: left 1s ease 0s;
     -moz-transition: left 1s ease 0s;
     transition: left 1s ease 0s;
 }
 
-.body-main section .slideLabel.slide-in {
+#bodyMain section .slideLabel.slide-in {
     left: 0;
 }
 
-.body-main section .fadeLabel {
+#bodyMain section .fadeLabel {
     visibility: hidden;
     opacity: 0;
     -webkit-transition: visibility 0s ease, opacity 1s ease 0.6s;
@@ -385,20 +401,51 @@ body::before {
     transition: visibility 0s ease, opacity 1s ease 0.6s;
 }
 
-.body-main section .fadeLabel.fade-in {
+#bodyMain section .fadeLabel.fade-in {
     visibility: visible;
     opacity: 1;
 }
 
-.body-main section p.header {
+#bodyMain section p.header {
     padding: 64px 20% 64px 20%;
 }
 
-.body-main .more {
+#bodyMain .more {
     height: 100%;
 }
 
-.body-main section a {
+.flexBox {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.flexItem {
+    /*flex: 1;*/
+    flex-basis: 30%;
+    /*min-height: 124px;*/
+    min-width: 124px;
+    background-color: #EFEFEF;
+    margin: 10px;
+    padding: 6px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.flexItem h2 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.flexItem i {
+    text-align: center;
+    font-size: 72px;
+}
+
+#bodyMain section a {
     width: 36px;
     height: 36px;
     line-height: 36px;
@@ -418,12 +465,12 @@ body::before {
     transition: background 0.4s ease 0s;
 }
 
-.body-main section a:hover {
+#bodyMain section a:hover {
     background: #040404;
     color: #FFF;
 }
 
-.body-main section[data-name=hello] a {
+#bodyMain section[data-name=hello] a {
     bottom: auto;
     left: 0;
     right: 0;
@@ -432,20 +479,30 @@ body::before {
     background: #040404;
 }
 
-.body-main section[data-name=hello] a:hover {
+#bodyMain section[data-name=hello] a:hover {
     color: #040404;
     background: #FFF;
 }
 
-.body-main section a i {
+#bodyMain section a i {
     font-size: 36px;
 }
 
-.navigation-container.open {
-    height: 100vh;
+.hidden {
+    display: none;
 }
 
-.body-main [data-hijacked=true] {
+#bodyMain section.active {
+    display: block;
+}
+
+#bodyNav.open {
+    height: 100vh;
+    /*background: #EFEFEF;
+    background: #F44336;*/
+}
+
+#bodyMain[data-hijacked=true] {
     overflow-y: hidden;
 }
 
@@ -488,7 +545,7 @@ body::before {
     li.active .hoverLink::after {
         display: inline-block;
     }
-    .navigation-container {
+    #bodyNav {
         top: 0;
         bottom: auto;
         left: 0;
@@ -497,34 +554,34 @@ body::before {
         max-width: 100%;
         height: 108px;
     }
-    .navigation-list-container {
+    #bodyNav #navContainer {
         overflow: hidden;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    .navigation-logo-container {
+    #bodyNav #logoDiv {
         position: relative;
         text-align: left;
     }
-    .navigation-logo-container i {
+    #bodyNav #logoDiv i {
         vertical-align: middle;
         margin-top: 0px;
         font-size: 108px;
     }
-    .navigation-logo-container h1 {
+    #bodyNav #logoDiv h1 {
         display: inline-block;
     }
-    .navigation-logo-container>div {
+    #bodyNav #logoDiv #headerContainer {
         display: inline-block;
     }
-    .navigation-list-container {
+    #bodyNav #navDiv {
         left: auto;
         top: auto;
         bottom: 0;
         right: 10px;
     }
-    .navigation-list-container ul li {
+    #bodyNav #navDiv ul li {
         text-align: center;
         min-width: 60px;
         display: inline-block;
@@ -533,24 +590,24 @@ body::before {
         /*height: 100px;*/
         /*line-height: 130px;*/
     }
-    .navigation-list-container ul li div {
+    #bodyNav #navDiv ul li div {
         padding-left: 0;
         padding-right: 4px;
         display: inline-block;
     }
-    .navigation-container .social-container {
+    #bodyNav #socialDiv {
         right: 0;
         padding-right: 2%;
         text-align: right;
         top: 12px;
         bottom: auto;
     }
-    .navigation-container .social-container .socialBubble {
+    #bodyNav #socialDiv .socialBubble {
         height: 24px;
         width: 24px;
         line-height: 20px;
     }
-    .navigation-container .social-container .socialBubble:hover> div {
+    #bodyNav #socialDiv .socialBubble:hover> div {
         line-height: 16px;
         top: 0px;
         height: 20px;
@@ -558,10 +615,10 @@ body::before {
         border: none;
         font-size: 24px;
     }
-    .navigation-container .social-container .socialBubble i {
+    #bodyNav #socialDiv .socialBubble i {
         font-size: 18px;
     }
-    .body-main {
+    #bodyMain {
         top: 108px;
         left: 0;
         width: 100%;
@@ -570,41 +627,46 @@ body::before {
     #hijackToggle {
         left: 16px;
     }
+    #hijackToggle label {
+        /*left: -100px;*/
+    }
 }
 
 @media screen and (max-width: 42em) {
-    .navigation-container {
+    #bodyNav {
         height: 100px;
     }
-    .navigation-logo-container i {
+    #bodyNav #logoDiv i {
         font-size: 96px;
     }
-    .navigation-logo-container h1 {
+    #bodyNav #logoDiv h1 {
         font-size: 22px;
     }
-    .navigation-logo-container h4 {
+    #bodyNav #logoDiv h4 {
         font-size: 14px;
     }
-    .navigation-logo-container>div {
+    #bodyNav #logoDiv #headerContainer {
         display: inline-block;
     }
-    .navigation-list-container {
+    #bodyNav #navDiv {
         right: 10px;
     }
-    .navigation-list-container ul li {
+    #bodyNav #navDiv ul li {
         font-size: 16px;
         height: 48px;
         line-height: 48px;
+        /*height: 70px;*/
+        /*line-height: 130px;*/
     }
-    .navigation-list-container ul li div {
+    #bodyNav #navDiv ul li div {
         padding-left: 0;
         display: inline-block;
     }
-    .navigation-list-container ul li i {
+    #bodyNav #navDiv ul li i {
         font-size: 28px;
         vertical-align: middle;
     }
-    .navigation-container .social-container .socialBubble:hover> div {
+    #bodyNav #socialDiv .socialBubble:hover> div {
         line-height: 16px;
         top: 0px;
         height: 20px;
@@ -612,7 +674,7 @@ body::before {
         border: none;
         font-size: 24px;
     }
-    .body-main {
+    #bodyMain {
         top: 100px;
         height: calc(100% - 100px);
     }
@@ -622,26 +684,29 @@ body::before {
     li.active .hoverLink::after {
         display: none;
     }
-    .navigation-container {
+    #bodyNav {
         height: 90px;
+        /*-webkit-transition: height 0.4s ease 0s;
+        -moz-transition: height 0.4s ease 0s;
+        transition: height 0.4s ease 0s;*/
     }
-    .navigation-list-container {
+    #bodyNav #navContainer {
         display: block;
     }
-    .navigation-logo-container {
+    #bodyNav #logoDiv {
         display: block;
         width: 100%;
     }
-    .navigation-logo-container i {
+    #bodyNav #logoDiv i {
         font-size: 84px;
     }
-    .navigation-logo-container h1 {
+    #bodyNav #logoDiv h1 {
         font-size: 20px;
     }
-    .navigation-logo-container h4 {
+    #bodyNav #logoDiv h4 {
         font-size: 12px;
     }
-    .navigation-list-container {
+    #bodyNav #navDiv {
         visibility: hidden;
         opacity: 0;
         width: 100%;
@@ -653,38 +718,41 @@ body::before {
         -moz-transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
         transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
     }
-    .navigation-container.open .navigation-list-container {
+    #bodyNav.open #navDiv {
         opacity: 1;
         visibility: visible;
     }
-    .navigation-list-container ul li {
+    #bodyNav #navDiv ul li {
         max-width: 100%;
         display: block;
         font-size: 18px;
         height: 48px;
         line-height: 48px;
     }
-    .navigation-list-container ul li i {
+    #bodyNav #navDiv ul li i {
         font-size: 44px;
     }
-    .navigation-list-container ul li div {
+    #bodyNav #navDiv ul li div {
         padding-left: 24px;
         display: flex;
     }
-    .navigation-container .social-container {
+    #bodyNav #socialDiv {
         top: 54px;
         bottom: auto;
         padding-bottom: 0;
     }
-    .navigation-container #menuToggle {
+    #bodyNav #menuToggle {
         z-index: 10;
         display: block;
     }
-    .body-main {
+    #bodyMain {
         top: 90px;
         left: 0;
         width: 100%;
         height: calc(100% - 90px);
+        -webkit-transition: top 0.4s ease, height 0.4s ease;
+        -moz-transition: top 0.4s ease, height 0.4s ease;
+        transition: top 0.4s ease, height 0.4s ease;
     }
 }
 
