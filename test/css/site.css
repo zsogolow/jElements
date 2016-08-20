@@ -312,13 +312,15 @@ body::before {
     width: calc(100% - 40%);
     height: 100%;
     overflow-y: auto;
+    background: #fff;
 }
 
 .body-main section {
     position: relative;
     min-height: calc(100% - 48px);
-    background: #fff;
+    background: transparent;
     padding: 24px 36px;
+    z-index: 2;
 }
 
 .body-main section:nth-of-type(1) {
@@ -461,11 +463,12 @@ body::before {
     position: fixed;
     cursor: pointer;
     bottom: 18px;
-    left: calc(40% + 24px);
+    left: calc(40%+ 24px);
     width: 24px;
     height: 24px;
     border: 1px solid #040404;
     border-radius: 4px;
+    z-index: 3;
 }
 
 #hijackToggle:hover label:nth-of-type(1) {
@@ -572,6 +575,8 @@ body::before {
     }
 }
 
+
+/*
 @media screen and (max-width: 42em) {
     .navigation-container {
         height: 100px;
@@ -616,9 +621,9 @@ body::before {
         top: 100px;
         height: calc(100% - 100px);
     }
-}
+}*/
 
-@media screen and (max-width: 34.5em) {
+@media screen and (max-width: 38em) {
     li.active .hoverLink::after {
         display: none;
     }
@@ -647,7 +652,7 @@ body::before {
         width: 100%;
         text-align: center;
         right: 0;
-        padding-top: 8px;
+        padding-top: 16px;
         position: relative;
         -webkit-transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
         -moz-transition: visibility 0.4s ease 0s, opacity 0.4s ease 0s;
@@ -792,4 +797,71 @@ body::before {
     100% {
         transform: rotate(0deg);
     }
+}
+
+.parallax {
+    position: absolute;
+    top: 20%;
+    left: 100px;
+    height: 150px;
+    width: 150px;
+    border-radius: 15%;
+    transform: rotateZ(45deg);
+    background: #F44336;
+    z-index: -1;
+}
+
+.small-shape {
+    height: 50px;
+    width: 50px;
+}
+
+.large-shape {
+    height: 250px;
+    width: 250px;
+}
+
+.shape-two {
+    top: 25%;
+    left: auto;
+    right: 100px;
+}
+
+.shape-three {
+    top: 50%;
+    left: 100px;
+    right: auto;
+}
+
+.shape-four {
+    top: 75%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.shape-five {
+    top: 5%;
+    right: auto;
+    left: 240px;
+}
+
+.shape-six {
+    top: 75%;
+    left: auto;
+    right: 60px;
+}
+
+.shape-seven {
+    top: 55%;
+    left: 140px;
+    right: 0;
+    margin: 0 auto;
+}
+
+.shape-eight {
+    top: 25%;
+    left: 200;
+    right: 100;
+    margin: 0 auto;
 }

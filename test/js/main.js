@@ -30,7 +30,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
     _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
-    _('.fadeLabel').appear(_bodyMain, function(element) {_(element).toggleClass('fade-in')}, 10);
+    _('.fadeLabel').appear(_bodyMain, function (element) { _(element).toggleClass('fade-in') }, 10);
 
     _hiJacker.bind('click', function () {
         isJacked = _bodyMain.data('hijacked') == 'true';
