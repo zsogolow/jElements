@@ -72,7 +72,7 @@ _(document).bind('DOMContentLoaded', function () {
                     if (_newSection) {
                         wheelCount = 0;
                         notScrolling = false;
-                        smoothScroll.scrollToAnchor(_newSection.htmlElements.item(0), { speed: 800 }, function () {
+                        smoothScroll.scrollToAnchor(_newSection.item(0), { speed: 800 }, function () {
                             notScrolling = true;
                         });
                     }
