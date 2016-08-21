@@ -9,7 +9,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     var smoothScroll = scroller();
 
-    var parallax = parallax();
+    var lax = parallax();
 
     var wheelCount = 0;
     var lastDirection;

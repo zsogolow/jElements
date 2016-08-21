@@ -6,30 +6,35 @@ function parallax() {
         return new parallax();
     }
 
-    this._scrollable = _('.parallax-scroll-container');
+    this._parallaxParent = _('.parallax-scroller');
+    this._parallaxContainer = _('.parallax-container');
+    this._parallaxis = _('.parallax');
 
-    (function (scrollable) {
-        var lastScroll = 0;
-        var lastDelta = 0;
-        var ticking = false;
+    (function (_scrollable, _container, _parallaxis) {
 
-        _('.parallax').each(function (i, el) {
+        _container.each(function (i, el) {
+            el.style.height = _scrollable.attr('scrollHeight') + 'px';
+        });
+
+        _parallaxis.each(function (i, el) {
             var top = getComputedStyle(el).getPropertyValue('top');
-            _(el).data('top', top);
+            _(el).data('origin-top', top);
         });
 
         function scroll(scrollPos, deltaY) {
             console.log(scrollPos + ' ' + deltaY);
-            _('.parallax').each(function (i, el) {
+            _parallaxis.each(function (i, el) {
                 var speed = parseInt(_(el).data('laxSpeed'));
-                var yPos = -(scrollPos / speed) + parseInt(_(el).data('top'));
+                var yPos = -(scrollPos / speed) + parseInt(_(el).data('originTop'));
 
                 el.style.top = yPos + 'px';
             });
         }
-
-        scrollable.bind('scroll', function (event) {
-            var tempScroll = scrollable.attr('scrollTop');
+        var lastScroll = 0;
+        var lastDelta = 0;
+        var ticking = false;
+        _scrollable.bind('scroll', function (event) {
+            var tempScroll = _scrollable.attr('scrollTop');
             lastDelta = lastScroll > tempScroll ? -1 : 1;
             lastScroll = tempScroll;
             if (!ticking) {
@@ -40,10 +45,27 @@ function parallax() {
             }
             ticking = true;
         });
-    })(this._scrollable);
+
+
+        // function resize() {
+        // }
+        // var lastResizeEvent = undefined;
+        // var resizing = false;
+        // _(window).bind('resize', function (event) {
+        //     lastResizeEvent = event;
+        //     if (!resizing) {
+        //         window.requestAnimationFrame(function () {
+        //             resize();
+        //             resizing = false;
+        //         });
+        //     }
+        //     resizing = true;
+        // });
+
+    })(this._parallaxParent, this._parallaxContainer, this._parallaxis);
 }
 
-scroller.prototype = {
+parallax.prototype = {
     doSomething: function () {
     },
 }
