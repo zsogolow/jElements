@@ -338,7 +338,9 @@ body::before {
     border-bottom: 2px solid #ccc;
 }
 
-.body-main section .sectionHeader p {}
+.body-main section p {
+    position: relative;
+}
 
 .body-main section p.headerLabel,
 .body-main section p.subLabel {
@@ -463,7 +465,7 @@ body::before {
     position: fixed;
     cursor: pointer;
     bottom: 18px;
-    left: calc(40% + 24px);
+    left: calc(40%+ 24px);
     width: 24px;
     height: 24px;
     border: 1px solid #040404;
