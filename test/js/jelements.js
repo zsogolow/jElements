@@ -251,6 +251,23 @@ _.prototype = {
         }
     },
 
+    removeStyleProperty: function (prop) {
+        this.each(function (i, el) {
+            if (el.style.removeProperty) {
+                el.style.removeProperty(prop);
+            } else {
+                el.style.removeAttribute(prop);
+            }
+        });
+        return this;
+    },
+    style:function(prop, value) {
+        this.each(function(i, el) {
+            el.style[prop] = value;
+        });
+        return this;
+    },
+
     children: function (selector) {
         var elements = [];
         this.each(function (i, el) {

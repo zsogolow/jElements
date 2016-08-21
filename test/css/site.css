@@ -827,7 +827,7 @@ body::before {
 }
 
 .shape-three {
-    top: 50%;
+    top: 60%;
     left: 100px;
     right: auto;
 }
@@ -865,19 +865,19 @@ body::before {
 }
 
 .shape-nine {
-    top: 35%;
+    top: 45%;
     left: auto;
     right: 240px;
 }
 
 .shape-ten {
-    top: 75%;
+    top: 30%;
     left: 160px;
     right: auto;
 }
 
 .shape-eleven {
-    top: 85%;
+    top: 40%;
     left: 360px;
     right: auto;
 }

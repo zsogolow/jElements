@@ -26,7 +26,6 @@ function parallax() {
             _parallaxis.each(function (i, el) {
                 var speed = parseInt(_(el).data('laxSpeed'));
                 var yPos = -(scrollPos / speed) + parseInt(_(el).data('originTop'));
-
                 el.style.top = yPos + 'px';
             });
         }
@@ -47,20 +46,30 @@ function parallax() {
         });
 
 
-        // function resize() {
-        // }
-        // var lastResizeEvent = undefined;
-        // var resizing = false;
-        // _(window).bind('resize', function (event) {
-        //     lastResizeEvent = event;
-        //     if (!resizing) {
-        //         window.requestAnimationFrame(function () {
-        //             resize();
-        //             resizing = false;
-        //         });
-        //     }
-        //     resizing = true;
-        // });
+        function resize() {
+            _container.each(function (i, el) {
+                _(el).removeStyleProperty('height');
+                el.style.height = _scrollable.attr('scrollHeight') + 'px';
+            });
+            _parallaxis.each(function (i, el) {
+                _(el).removeStyleProperty('top');
+                    var top = getComputedStyle(el).getPropertyValue('top');
+                _(el).data('originTop', top);
+                // el.style.top = (_scrollable.attr('scrollTop') + parseInt(top)) + 'px';
+            });
+        }
+        var lastResizeEvent = undefined;
+        var resizing = false;
+        _(window).bind('resize', function (event) {
+            lastResizeEvent = event;
+            // if (!resizing) {
+                // window.requestAnimationFrame(function () {
+                    resize();
+                    resizing = false;
+                // });
+            // }
+            resizing = true;
+        });
 
     })(this._parallaxParent, this._parallaxContainer, this._parallaxis);
 }
