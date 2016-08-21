@@ -89,6 +89,10 @@ _.prototype.constructor.deviceType = function () {
 
 _.prototype = {
 
+    item:function(index) {
+        return this.htmlElements[index];
+    },
+
     each: function (handler) {
         _.each(this.htmlElements, handler);
     },

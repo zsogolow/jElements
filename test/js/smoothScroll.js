@@ -1,15 +1,15 @@
-function scroller() {
+function scroller(scrollable) {
 
     // Avoid clobbering the window scope:
-    // return a new _ object if we're in the wrong scope
+    // return a new scroller object if we're in the wrong scope
     if (window === this) {
-        return new scroller();
+        return new scroller(scrollable);
     }
 
-    this._scrollable = _('.smoothScrolling');
+    this.scrollable = scrollable;
     this.prevAnimation = -1;
     this.cancelScroll = false;
-  }
+}
 
 scroller.prototype = {
     /*
@@ -22,15 +22,15 @@ scroller.prototype = {
         if (this.prevAnimation != -1) {
             clearInterval(this.prevAnimation);
         }
-        var _anchor = _(anchor);
-        var anchorOffset = _anchor.attr('offsetTop');
-        var currentScroll = this._scrollable.attr('scrollTop');
+        var anchor = anchor;
+        var anchorOffset = anchor.offsetTop;
+        var currentScroll = this.scrollable.scrollTop;
 
         var distance = anchorOffset - currentScroll;
         var time = options.speed;
         var step = 16;
         var increment = distance / (time / step);
-        var _scrollable = this._scrollable;
+        var scrollable = this.scrollable;
         var stopAnimation;
         var smallStep = false;
         var smallStepIncrement = undefined;
@@ -38,9 +38,9 @@ scroller.prototype = {
         // Scroll the page by an increment, and check if it's time to stop
         var animateScroll = function () {
             if (smallStep) {
-                _scrollable.attr('scrollTop', _scrollable.attr('scrollTop') + smallStepIncrement/*(increment > 0 ? 1 : -1)*/);
+                scrollable.scrollTop = scrollable.scrollTop + smallStepIncrement;
             } else {
-                _scrollable.attr('scrollTop', _scrollable.attr('scrollTop') + increment);
+                scrollable.scrollTop = scrollable.scrollTop + increment;
             }
             stopAnimation(this.cancelScroll);
         };
@@ -49,11 +49,11 @@ scroller.prototype = {
         if (increment >= 0) {
             // Stop animation when you reach the anchor OR the bottom of the page
             stopAnimation = function (force) {
-                var traveled = _scrollable.attr('scrollTop');
-                var offsetTop = _scrollable.attr('offsetTop');
+                var traveled = scrollable.scrollTop;
+                var offsetTop = scrollable.offsetTop;
                 if (force === true
                     || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
-                    || traveled == _scrollable.attr('scrollHeight')) {
+                    || traveled == scrollable.scrollHeight) {
                     clearInterval(runAnimation);
                     this.prevAnimation = -1;
                     if (callback) {
@@ -70,7 +70,7 @@ scroller.prototype = {
         else {
             // Stop animation when you reach the anchor OR the top of the page
             stopAnimation = function (force) {
-                var traveled = _scrollable.attr('scrollTop');
+                var traveled = scrollable.scrollTop;
                 if (force === true
                     || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
                     || traveled == 0) {
@@ -93,6 +93,6 @@ scroller.prototype = {
     },
 
     scrollToPosition: function (position, options) {
-        this._scrollable.attr('scrollTop', position);
+        this.scrollable.scrollTop = position;
     }
 }

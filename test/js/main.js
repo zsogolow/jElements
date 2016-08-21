@@ -7,7 +7,7 @@ _(document).bind('DOMContentLoaded', function () {
         _sections = _('.body-main section'),
         _hiJacker = _('#hijackToggle');
 
-    var smoothScroll = scroller();
+    var smoothScroll = scroller(_('.smooth-scrolling').item(0));
 
     var lax = parallax();
 
@@ -72,7 +72,7 @@ _(document).bind('DOMContentLoaded', function () {
                     if (_newSection) {
                         wheelCount = 0;
                         notScrolling = false;
-                        smoothScroll.scrollToAnchor(_newSection, { speed: 800 }, function () {
+                        smoothScroll.scrollToAnchor(_newSection.htmlElements.item(0), { speed: 800 }, function () {
                             notScrolling = true;
                         });
                     }
@@ -127,7 +127,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _moreButtons.bind('click', function (evt) {
         var index = _(this).data('index');
-        smoothScroll.scrollToAnchor(_('.body-main section[data-index="' + (parseInt(index) + 1) + '"]'), { speed: 500 });
+        smoothScroll.scrollToAnchor(_('.body-main section[data-index="' + (parseInt(index) + 1) + '"]').item(0), { speed: 500 });
     });
 
     _menuToggle.bind('click', function () {
@@ -137,7 +137,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _(window).bind('resize', function (event) {
         var width = window.innerWidth / 16;
-        if (width >= 34.5) {
+        if (width >= 31) {
             _bodyNav.removeClass('open');
             _menuToggle.removeClass('open');
         }
@@ -151,7 +151,7 @@ _(document).bind('DOMContentLoaded', function () {
         _menuToggle.removeClass('open');
         var section = _(this).data('section');
         sessionStorage.setItem('hash', section);
-        smoothScroll.scrollToAnchor(_('#' + section), { speed: 800 }, function () {
+        smoothScroll.scrollToAnchor(_('#' + section).item(0), { speed: 800 }, function () {
         });
     });
 

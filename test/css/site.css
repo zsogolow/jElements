@@ -85,7 +85,7 @@ body::before {
     height: 6px;
     width: 100%;
     /*background: #2196f3;*/
-    background: #aaa;
+    background: #fff;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -200,14 +200,29 @@ body::before {
 }
 
 .navigation-list-container ul li {
-    height: 48px;
-    line-height: 48px;
+    height: 84px;
+    line-height: 84px;
     cursor: pointer;
     text-align: center;
     position: relative;
-    display: block;
+    /*display: inline-block;*/
     color: #FFF;
     opacity: 0.65;
+    width: 50%;
+    float: left;
+}
+
+.navigation-list-container ul li .list-item-container {
+    display: flex;
+}
+
+.navigation-list-container ul li .list-item-icon {
+    flex: 1;
+}
+
+.navigation-list-container ul li .list-item-label {
+    flex: 1;
+    text-align: left;
 }
 
 .navigation-list-container ul li i {
@@ -218,7 +233,7 @@ body::before {
 }
 
 .navigation-list-container ul li div {
-    padding-left: 12px;
+    /*padding-left: 12px;*/
 }
 
 .navBubbles {
@@ -541,8 +556,14 @@ body::before {
         display: inline-block;
         height: 56px;
         line-height: 56px;
-        /*height: 100px;*/
-        /*line-height: 130px;*/
+        width: auto;
+        float: none;
+    }
+    .navigation-list-container ul li .list-item-icon {
+        flex: auto;
+    }
+    .navigation-list-container ul li .list-item-label {
+        flex: auto;
     }
     .navigation-list-container ul li div {
         padding-left: 0;
@@ -580,6 +601,15 @@ body::before {
     }
     #hijackToggle {
         left: 16px;
+    }
+}
+
+@media screen and (max-width: 44em) {
+    .navigation-list-container ul li .list-item-label {
+        display: none;
+    }
+    .navigation-list-container ul li div {
+        padding-right: 0;
     }
 }
 
@@ -631,7 +661,7 @@ body::before {
     }
 }*/
 
-@media screen and (max-width: 38em) {
+@media screen and (max-width: 31em) {
     li.active .hoverLink::after {
         display: none;
     }
@@ -676,6 +706,21 @@ body::before {
         font-size: 18px;
         height: 48px;
         line-height: 48px;
+    }
+    .navigation-list-container ul li {
+        text-align: center;
+        min-width: 60px;
+        display: block;
+        height: 56px;
+        line-height: 56px;
+        width: 100%;
+    }
+    .navigation-list-container ul li .list-item-icon {}
+    .navigation-list-container ul li .list-item-icon {
+        display: inline-block;
+    }
+    .navigation-list-container ul li .list-item-label {
+        display: inline-block;
     }
     .navigation-list-container ul li i {
         font-size: 44px;
@@ -811,7 +856,37 @@ body::before {
     border-radius: 15%;
     transform: rotateZ(45deg);
     background: #F44336;
-    z-index: -1;
+    /*z-index: -1;*/
+}
+
+.label {
+    top: 5%;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 32px;
+    color: #CCC;
+    /*z-index: -1;*/
+}
+
+.label-one {
+    top: 15%;
+    left: 0;
+    right: 0;
+}
+
+.label-two {
+    top: 50%;
+    left: 240px;
+    right: auto;    
+}
+
+.label-three {
+    top: 100%;
+    left: auto;
+    right: 140px;
 }
 
 .small-shape {
