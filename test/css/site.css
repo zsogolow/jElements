@@ -1,7 +1,8 @@
 html,
 body {
     background: #222;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
     height: 100%;
     padding: 0;
     margin: 0;
@@ -420,6 +421,10 @@ body::before {
     -webkit-transition: background 0.4s ease 0s;
     -moz-transition: background 0.4s ease 0s;
     transition: background 0.4s ease 0s;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .body-main section a:hover {
@@ -503,6 +508,7 @@ body::before {
         height: 108px;
     }
     .navigation-list-container {
+        padding-top: 4px;
         overflow: hidden;
         display: flex;
         flex-direction: row;
@@ -711,12 +717,8 @@ body::before {
     animation: pour 1s ease;
 }
 
-.fadeIn-slow {
-    animation: fadeIn 1.6s forwards;
-}
-
 .fadeIn {
-    animation: fadeIn 0.6s forwards;
+    animation: fadeIn 0.4s forwards;
 }
 
 .fadeOut {
