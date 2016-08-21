@@ -18,7 +18,7 @@ function parallax() {
 
         _parallaxis.each(function (i, el) {
             var top = getComputedStyle(el).getPropertyValue('top');
-            _(el).data('origin-top', top);
+            _(el).data('originTop', top);
         });
 
         function scroll(scrollPos, deltaY) {

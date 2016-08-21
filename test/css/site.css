@@ -865,19 +865,19 @@ body::before {
 }
 
 .shape-nine {
-    top: 95%;
+    top: 65%;
     left: auto;
     right: 240px;
 }
 
 .shape-ten {
-    top: 95%;
+    top: 75%;
     left: 160px;
     right: auto;
 }
 
 .shape-eleven {
-    top: 95%;
+    top: 85%;
     left: 360px;
     right: auto;
 }
