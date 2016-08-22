@@ -29,7 +29,7 @@ _(document).bind('DOMContentLoaded', function () {
         } else {
             _hiJacker.removeClass('hijacked');
         }
-        
+
         smoothScroll = scroller(_('.smooth-scrolling').item(0));
         lax = parallax();
 
@@ -145,7 +145,7 @@ _(document).bind('DOMContentLoaded', function () {
 
     _(window).bind('resize', function (event) {
         var width = window.innerWidth / 16;
-        if (width >= 31) {
+        if (width >= 32) {
             _bodyNav.removeClass('open');
             _menuToggle.removeClass('open');
         }
