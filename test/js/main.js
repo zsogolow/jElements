@@ -7,10 +7,6 @@ _(document).bind('DOMContentLoaded', function () {
         _sections = _('.body-main section'),
         _hiJacker = _('#hijackToggle');
 
-    var smoothScroll = scroller(_('.smooth-scrolling').item(0));
-
-    var lax = parallax();
-
     var wheelCount = 0;
     var lastDirection;
     var notScrolling = true;
@@ -18,6 +14,9 @@ _(document).bind('DOMContentLoaded', function () {
     var isMobile = _.deviceType() == 'mobile';
 
     function init() {
+        var smoothScroll = scroller(_('.smooth-scrolling').item(0));
+        var lax = parallax();
+
         if (isMobile) {
             _hiJacker.remove();
             _bodyMain.data('hijacked', false);
@@ -28,11 +27,11 @@ _(document).bind('DOMContentLoaded', function () {
         } else {
             _hiJacker.removeClass('hijacked');
         }
-    }
 
-    _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
-    _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
-    _('.fadeLabel').appear(_bodyMain, function (element) { _(element).toggleClass('fade-in') }, 10);
+        _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
+        _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
+        _('.fadeLabel').appear(_bodyMain, function (element) { _(element).toggleClass('fade-in') }, 10);
+    }
 
     _hiJacker.bind('click', function () {
         isJacked = _bodyMain.data('hijacked') == 'true';
