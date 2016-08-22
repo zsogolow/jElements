@@ -21,6 +21,55 @@ body::before {
     }
 }
 
+.page-loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    /*background: #2196f3;*/
+    /*background: #009688;*/
+    background: #607d8b;
+    /*background: #F44336;
+    background: #3f51b5;
+    background: #040404;*/
+    z-index: 100;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 5vh;
+}
+.page-loading div {
+    position: relative;
+    display: inline-block;
+    text-align: middle;
+    top:-6vh;
+}
+
+.page-loading span {
+    /*color: #040404;*/
+    color: #FFFFFF;
+    font-size: 30vh;
+    display: inline-block;
+    padding: 5% 10px 0 10px;
+}
+
+.loading-animation span {
+    animation: loading 0.4s alternate infinite ease-in-out;
+    -webkit-animation: loading 0.4s alternate infinite ease-in-out;
+    -moz-animation: loading 0.4s alternate infinite ease-in-out;
+    -o-animation: loading 0.4s alternate infinite ease-in-out;
+}
+
+.loading-animation span:nth-of-type(odd) {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.page-loading.loaded {
+    display: none;
+}
+
 .hoverLink> div {
     position: relative;
     z-index: 1;
@@ -385,6 +434,9 @@ body::before {
 
 .body-main section .tiltLabel.tilt {
     animation: pour 1s ease;
+    -webkit-animation: pour 1s ease;
+    -moz-animation: pour 1s ease;
+    -o-animation: pour 1s ease;
 }
 
 .body-main section .slideLabel {
@@ -733,16 +785,16 @@ body::before {
 
 .fadeIn {
     animation: fadeIn 0.6s forwards;
-    -webkit-animation: fadeIn 1s forwards;
-    -moz-animation: fadeIn 1s forwards;
-    -o-animation: fadeIn 1s forwards;
+    -webkit-animation: fadeIn 0.6s forwards;
+    -moz-animation: fadeIn 0.6s forwards;
+    -o-animation: fadeIn 0.6s forwards;
 }
 
 .fadeOut {
     animation: fadeOut 0.6s forwards;
-    -webkit-animation: fadeOut 1s forwards;
-    -moz-animation: fadeOut 1s forwards;
-    -o-animation: fadeOut 1s forwards;
+    -webkit-animation: fadeOut 0.6s forwards;
+    -moz-animation: fadeOut 0.6s forwards;
+    -o-animation: fadeOut 0.6s forwards;
 }
 
 @-webkit-keyframes fadeOut {
@@ -753,6 +805,7 @@ body::before {
     to {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 }
 
@@ -764,6 +817,7 @@ body::before {
     to {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 }
 
@@ -775,6 +829,7 @@ body::before {
     to {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 }
 
@@ -786,6 +841,7 @@ body::before {
     to {
         visibility: hidden;
         opacity: 0;
+        display: none;
     }
 }
 
@@ -1054,6 +1110,38 @@ body::before {
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes loading {
+    to {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+@-moz-keyframes loading {
+    to {
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+@-o-keyframes loading {
+    to {
+        -o-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+@keyframes loading {
+    to {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.5;
     }
 }
 

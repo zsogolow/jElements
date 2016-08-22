@@ -5,7 +5,11 @@ _(document).bind('DOMContentLoaded', function () {
         _lis = _('.navigation-list-container ul li'),
         _moreButtons = _('.moreButton'),
         _sections = _('.body-main section'),
-        _hiJacker = _('#hijackToggle');
+        _hiJacker = _('#hijackToggle'),
+        _pageLoader = _('.page-loading');
+
+    var smoothScroll = undefined;
+    var lax = undefined;
 
     var wheelCount = 0;
     var lastDirection;
@@ -14,8 +18,6 @@ _(document).bind('DOMContentLoaded', function () {
     var isMobile = _.deviceType() == 'mobile';
 
     function init() {
-        var smoothScroll = scroller(_('.smooth-scrolling').item(0));
-        var lax = parallax();
 
         if (isMobile) {
             _hiJacker.remove();
@@ -27,10 +29,17 @@ _(document).bind('DOMContentLoaded', function () {
         } else {
             _hiJacker.removeClass('hijacked');
         }
+        
+        smoothScroll = scroller(_('.smooth-scrolling').item(0));
+        lax = parallax();
 
-        _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
-        _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
-        _('.fadeLabel').appear(_bodyMain, function (element) { _(element).toggleClass('fade-in') }, 10);
+        setTimeout(function () {
+            _pageLoader.removeClass('loading-animation');
+            _pageLoader.addClass('fadeOut');
+            _('.tiltLabel').appear(_bodyMain, function (element) { _(element).toggleClass('tilt') }, 10);
+            _('.slideLabel').appear(_bodyMain, function (element) { _(element).toggleClass('slide-in') }, 10);
+            _('.fadeLabel').appear(_bodyMain, function (element) { _(element).toggleClass('fade-in') }, 10);
+        }, 3000);
     }
 
     _hiJacker.bind('click', function () {
