@@ -10,7 +10,7 @@ function Router(options) {
 
 Router.prototype = {
     handle: function (req, res, done) {
-        var fn = undefined;
+        var fn = undefined; 
         var fileServer = this.fileServer;
         this.routes.forEach(function (route, i) {
             if (route.path == req.url && route.method == req.method.toLowerCase()) {
