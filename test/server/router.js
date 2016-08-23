@@ -1,11 +1,11 @@
 'use strict'
 
 var Route = require('./route');
-var fileServer = require('./static');
+var FileServer = require('./static');
 
 function Router(options) {
     this.routes = [];
-    this.fileServer = new fileServer();
+    this.fileServer = new FileServer();
 };
 
 Router.prototype = {
