@@ -1,12 +1,17 @@
-function parallax() {
+function parallax(scroller) {
 
     // Avoid clobbering the window scope:
     // return a new parallax object if we're in the wrong scope
     if (window === this) {
-        return new parallax();
+        return new parallax(scroller);
     }
 
-    this.parallaxScrollers = document.getElementsByClassName('parallax-scroller');
+    this.parallaxScrollers = [];
+    if (scroller) {
+        this.parallaxScrollers.push(scroller);
+    } else {
+        this.parallaxScrollers = document.getElementsByClassName('parallax-scroller');
+    }
 
     (function (scrollables) {
         function each(els, handler) {
@@ -24,18 +29,25 @@ function parallax() {
         }
 
         each(scrollables, function (i, scrollable) {
-            each(scrollable.querySelectorAll('.parallax-container'), function (i, container) {
+            var scrollables = scrollable.querySelectorAll ? scrollable.querySelectorAll('.parallax-container')
+                : document.querySelectorAll('.parallax-container');
+            each(scrollables, function (i, container) {
                 container.style.height = scrollable.scrollHeight + 'px';
             });
-            each(scrollable.querySelectorAll('.parallax'), function (i, parallax) {
+            var laxis = scrollable.querySelectorAll ? scrollable.querySelectorAll('.parallax')
+                : document.querySelectorAll('.parallax');
+            each(laxis, function (i, parallax) {
                 var top = getComputedStyle(parallax).getPropertyValue('top');
+                top = top === 'auto' ? parallax.offsetTop + 'px' : top;
                 parallax.dataset.originTop = top;
             });
         });
 
         function scroll(scrollPos, deltaY) {
             each(scrollables, function (i, scrollable) {
-                each(scrollable.querySelectorAll('.parallax'), function (i, parallax) {
+                var laxis = scrollable.querySelectorAll ? scrollable.querySelectorAll('.parallax')
+                    : document.querySelectorAll('.parallax');
+                each(laxis, function (i, parallax) {
                     var speed = parseInt(parallax.dataset.laxSpeed);
                     var yPos = -(scrollPos / speed) + parseInt(parallax.dataset.originTop);
                     parallax.style.top = yPos + 'px';
@@ -47,7 +59,7 @@ function parallax() {
         var ticking = false;
         each(scrollables, function (i, scrollable) {
             scrollable.addEventListener('scroll', function (event) {
-                var tempScroll = scrollable.scrollTop;
+                var tempScroll = scrollable.scrollY || scrollable.scrollTop;
                 lastDelta = lastScroll > tempScroll ? -1 : 1;
                 lastScroll = tempScroll;
                 if (!ticking) {
@@ -62,13 +74,18 @@ function parallax() {
 
         function resize() {
             each(scrollables, function (i, scrollable) {
-                each(scrollable.querySelectorAll('.parallax-container'), function (i, container) {
+                var scrollables = scrollable.querySelectorAll ? scrollable.querySelectorAll('.parallax-container')
+                    : document.querySelectorAll('.parallax-container');
+                each(scrollables, function (i, container) {
                     removeInlineStyle(container, 'height');
                     container.style.height = scrollable.scrollHeight + 'px';
                 });
-                each(scrollable.querySelectorAll('.parallax'), function (i, parallax) {
+                var laxis = scrollable.querySelectorAll ? scrollable.querySelectorAll('.parallax')
+                    : document.querySelectorAll('.parallax');
+                each(laxis, function (i, parallax) {
                     removeInlineStyle(parallax, 'top');
                     var top = getComputedStyle(parallax).getPropertyValue('top');
+                    top = top === 'auto' ? parallax.offsetTop + 'px' : top;
                     parallax.dataset.originTop = top;
                 });
             });
