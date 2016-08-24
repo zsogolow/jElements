@@ -22,7 +22,7 @@
                     <nav class="zm-nav">
                         <div class="zm-nav-title">
                             <h1>
-                                Title
+                               <a class="zm-nav-title-link" href="/">Title</a>
                             </h1>
                         </div>
                         <div class="flex-spacer">
@@ -30,16 +30,17 @@
                         <div class="zm-nav-list-container">
                             <ul class="zm-nav-list">
                                 <li class="zm-nav-list-item">
-                                    <a class="zm-nav-list-link" href="/">One</a>
+                                    <a class="zm-nav-list-link" href="/one">One</a>
                                 </li>
                                 <li class="zm-nav-list-item">
-                                    <a class="zm-nav-list-link" href="/">Two</a>
+                                    <a class="zm-nav-list-link" href="/two">Two</a>
                                 </li>
                                 <li class="zm-nav-list-item">
-                                    <a class="zm-nav-list-link" href="/">Three</a>
+                                    <a class="zm-nav-list-link" href="/three">Three</a>
                                 </li>
                                 <li class="zm-nav-list-item">
-                                    <a class="zm-nav-list-link" href="/">Four</a></li>
+                                    <a class="zm-nav-list-link" href="/four">Four</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -57,16 +58,16 @@
                 <div class="zm-menu-body">
                     <ul class="zm-nav-list zm-menu-list">
                         <li class="zm-nav-list-item zm-menu-list-item">
-                            <a class="zm-nav-list-link" href="/">One</a>
+                            <a class="zm-nav-list-link" href="/one">One</a>
                         </li>
                         <li class="zm-nav-list-item zm-menu-list-item">
-                            <a class="zm-nav-list-link" href="/">Two</a>
+                            <a class="zm-nav-list-link" href="/two">Two</a>
                         </li>
                         <li class="zm-nav-list-item zm-menu-list-item">
-                            <a class="zm-nav-list-link" href="/">Three</a>
+                            <a class="zm-nav-list-link" href="/three">Three</a>
                         </li>
                         <li class="zm-nav-list-item zm-menu-list-item">
-                            <a class="zm-nav-list-link" href="/">Four</a>
+                            <a class="zm-nav-list-link" href="/four">Four</a>
                         </li>
                     </ul>
                 </div>
@@ -74,8 +75,19 @@
             <div class="zm-menu-overlay"></div>
             <div class="zm-content-container">
                 <main class="zm-main">
-                    <div class="zm-main-section"></div>
-                    <div class="zm-main-section"></div>
+                <% if (partial != null) { %>
+                    <% if (partial === 'one') { %>
+                        <%- include partials/one %>
+                    <% } else if (partial === 'two') { %>
+                        <%- include partials/two %>
+                    <% } else if (partial === 'three') { %>
+                        <%- include partials/three %>
+                    <% } else if (partial === 'four') { %>
+                        <%- include partials/four %>    
+                    <% } %>
+                <% } else { %>
+                    <%- include partials/index %>
+                <% } %>
                 </main>
                 <div class="zm-footer-container">
                     <footer class="zm-footer">

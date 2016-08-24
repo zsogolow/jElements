@@ -55,5 +55,4 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('click');
         toggleMenu(false);
     });
-
 });

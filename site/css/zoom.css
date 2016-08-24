@@ -96,6 +96,11 @@ h6 {
     color: #0d47a1;
 }
 
+.zm-nav-title-link {
+    color: #0d47a1;
+    text-decoration: none;
+}
+
 .zm-nav-list-container {}
 
 .zm-nav-list {
@@ -120,7 +125,8 @@ h6 {
     display: block;
 }
 
-.zm-nav-list-item:hover::after {
+.zm-nav-list-item:hover::after,
+.zm-nav-list-item.active::after {
     content: "";
     position: absolute;
     left: 0;

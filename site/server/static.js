@@ -13,7 +13,7 @@ Static.prototype = {
 
         // check for .ejs extension
         if (req.url.endsWith('.ejs')) {
-            ejs.renderFile(path, function (error, result) {
+            ejs.renderFile(path, { partial: req.data }, function (error, result) {
                 if (error !== null) {
                     done(error);
                 } else {

@@ -1,12 +1,12 @@
 _(document).bind('DOMContentLoaded', function () {
 
-    var smoothScroll = undefined;
-    var lax = undefined;
+    // var smoothScroll = undefined;
+    // var lax = undefined;
 
-    function init() {
-        // smoothScroll = scroller(window);
-        lax = parallax();
-    }
+    // function init() {
+    //     // smoothScroll = scroller(window);
+    //     lax = parallax();
+    // }
 
-    init();
+    // init();
 });

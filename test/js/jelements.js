@@ -75,9 +75,16 @@ _.prototype.constructor.each = function (context, handler) {
         handler = context;
         context = this;
     }
-    for (var prop in context) {
-        if (context.hasOwnProperty(prop)) {
-            handler(prop, context[prop]);
+    if (context instanceof Array) {
+        for (var i = 0; i < context.length; i++) {
+            console.log(context);
+            handler(i, context[i]);
+        }
+    } else {
+        for (var prop in context) {
+            if (context.hasOwnProperty(prop)) {
+                handler(prop, context[prop]);
+            }
         }
     }
 }
@@ -89,7 +96,7 @@ _.prototype.constructor.deviceType = function () {
 
 _.prototype = {
 
-    item:function(index) {
+    item: function (index) {
         return this.htmlElements[index];
     },
 
@@ -265,8 +272,8 @@ _.prototype = {
         });
         return this;
     },
-    style:function(prop, value) {
-        this.each(function(i, el) {
+    style: function (prop, value) {
+        this.each(function (i, el) {
             el.style[prop] = value;
         });
         return this;
