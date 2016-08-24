@@ -8,7 +8,7 @@ function Static() {
 
 Static.prototype = {
     serve: function (req, res, done) {
-        var contentType = req.headers.accept;
+        var contentType = req.headers.accept.split(',')[0];
         var path = './' + req.url;
 
         // check for .ejs extension
