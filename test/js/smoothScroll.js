@@ -24,7 +24,7 @@ scroller.prototype = {
         }
         var anchor = anchor;
         var anchorOffset = anchor.offsetTop;
-        var currentScroll = this.scrollable.scrollTop;
+        var currentScroll = this.scrollable.scrollY || this.scrollable.scrollTop;
 
         var distance = anchorOffset - currentScroll;
         var time = options.speed;
@@ -38,9 +38,17 @@ scroller.prototype = {
         // Scroll the page by an increment, and check if it's time to stop
         var animateScroll = function () {
             if (smallStep) {
-                scrollable.scrollTop = scrollable.scrollTop + smallStepIncrement;
+                if (scrollable.scrollY) {
+                    scrollable.scrollY = scrollable.scrollY + smallStepIncrement;
+                } else {
+                    scrollable.scrollTop = scrollable.scrollTop + smallStepIncrement;
+                }
             } else {
-                scrollable.scrollTop = scrollable.scrollTop + increment;
+                if (scrollable.scrollY) {
+                    scrollable.scrollY = scrollable.scrollY + increment;
+                } else {
+                    scrollable.scrollTop = scrollable.scrollTop + increment;
+                }
             }
             stopAnimation(this.cancelScroll);
         };
@@ -49,7 +57,7 @@ scroller.prototype = {
         if (increment >= 0) {
             // Stop animation when you reach the anchor OR the bottom of the page
             stopAnimation = function (force) {
-                var traveled = scrollable.scrollTop;
+                var traveled = scrollable.scrollY || scrollable.scrollTop;
                 var offsetTop = scrollable.offsetTop;
                 if (force === true
                     || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
@@ -70,7 +78,7 @@ scroller.prototype = {
         else {
             // Stop animation when you reach the anchor OR the top of the page
             stopAnimation = function (force) {
-                var traveled = scrollable.scrollTop;
+                var traveled = scrollable.scrollY || scrollable.scrollTop;
                 if (force === true
                     || (traveled <= anchorOffset + 0.5 && traveled >= anchorOffset - 0.5)
                     || traveled == 0) {
@@ -91,8 +99,4 @@ scroller.prototype = {
         var runAnimation = setInterval(animateScroll, 16);
         this.prevAnimation = runAnimation;
     },
-
-    scrollToPosition: function (position, options) {
-        this.scrollable.scrollTop = position;
-    }
 }
