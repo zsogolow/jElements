@@ -6,3 +6,27 @@ body {
     padding: 0;
     margin: 0;
 }
+
+.body-content {
+    padding: 16px;
+    min-height: 100%;
+}
+
+.content-section {
+    min-height: 200px;
+}
+
+.index {
+}
+
+.one {
+}
+
+.two {
+}
+
+.three {
+}
+
+.four {
+}

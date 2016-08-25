@@ -233,7 +233,7 @@ h6 {
 
 .zm-main {
     position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 
 .zm-main-section {
@@ -253,12 +253,12 @@ h6 {
 }
 
 .zm-footer-content-panel {
-    text-align: center;
     flex: 1;
-    padding: 40px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex-flow: nowrap;
+    justify-content: center;
 }
 
 .zm-footer-copyright {
