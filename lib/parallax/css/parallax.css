@@ -1,0 +1,14 @@
+.parallax-scroller {
+    position: relative;
+    /*height:100%;*/
+}
+
+.parallax-scroller .parallax-container {
+    position: absolute;
+    width:100%;
+}
+
+.parallax-scroller .parallax-container .parallax {
+    position: absolute;
+    z-index: 1;
+}
