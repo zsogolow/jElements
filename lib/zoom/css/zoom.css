@@ -61,6 +61,7 @@ h6 {
     position: relative;
     background-color: #ccc;
     color: #FFFFFF;
+    z-index: 1;
 }
 
 .zm-nav-toggle {
@@ -233,7 +234,8 @@ h6 {
 
 .zm-main {
     position: relative;
-    height: 100%;
+    min-height: 100%;
+    z-index: 1;
 }
 
 .zm-main-section {

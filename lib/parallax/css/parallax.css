@@ -5,10 +5,124 @@
 
 .parallax-scroller .parallax-container {
     position: absolute;
-    width:100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 .parallax-scroller .parallax-container .parallax {
     position: absolute;
     z-index: 1;
+}
+
+.shape {
+    top: 10%;
+    left: 100px;
+    height: 150px;
+    width: 150px;
+    border-radius: 15%;
+    transform: rotateZ(45deg);
+    background: #F44336;
+    /*z-index: -1;*/
+}
+
+.label {
+    top: 5%;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 32px;
+    color: #CCC;
+    /*z-index: -1;*/
+}
+
+.label-one {
+    top: 15%;
+    left: 0;
+    right: 0;
+}
+
+.label-two {
+    top: 50%;
+    left: 240px;
+    right: auto;
+}
+
+.label-three {
+    top: 80%;
+    left: auto;
+    right: 140px;
+}
+
+.small-shape {
+    height: 50px;
+    width: 50px;
+}
+
+.large-shape {
+    height: 250px;
+    width: 250px;
+}
+
+.shape-two {
+    top: 25%;
+    left: auto;
+    right: 100px;
+}
+
+.shape-three {
+    top: 60%;
+    left: 100px;
+    right: auto;
+}
+
+.shape-four {
+    top: 75%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.shape-five {
+    top: 90%;
+    right: 60px;
+    left: auto;
+}
+
+.shape-six {
+    top: 85%;
+    left: auto;
+    right: 60px;
+}
+
+.shape-seven {
+    top: 35%;
+    left: 140px;
+    right: 0;
+    margin: 0 auto;
+}
+
+.shape-eight {
+    top: 95%;
+    left: 200px;
+    right: 100px;
+}
+
+.shape-nine {
+    top: 45%;
+    left: auto;
+    right: 240px;
+}
+
+.shape-ten {
+    top: 30%;
+    left: 160px;
+    right: auto;
+}
+
+.shape-eleven {
+    top: 40%;
+    left: 360px;
+    right: auto;
 }
