@@ -239,7 +239,7 @@ h6 {
 }
 
 .zm-main-section {
-    height: 400px;
+    min-height: 100px;
 }
 
 .zm-footer {
