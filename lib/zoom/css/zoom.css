@@ -194,10 +194,6 @@ h6 {
     line-height: 56px;
 }
 
-.zm-nav-list-item.zm-menu-list-item .zm-nav-list-link {
-    font-weight: normal;
-}
-
 .zm-nav-list-item.zm-menu-list-item:hover {
     background: #e0e0e0;
 }
@@ -295,15 +291,51 @@ h6 {
 
 
 /**
-    nav header
+    dark theme
 */
 
+.zm-layout-dark {
+    color: #EFEFEF;
+}
 
-/**
-    side menu
-*/
+.zm-layout-dark .zm-header-container {
+    background-color: #000000;
+}
 
+.zm-layout-dark .zm-nav-toggle {
+    color: #EFEFEF;
+}
 
-/**
-    body content
-*/
+.zm-layout-dark .zm-menu-container {
+    background-color: #212121;
+}
+
+.zm-layout-dark .zm-content-container {
+    background-color: #303030;
+}
+
+.zm-layout-dark .zm-menu-header {
+    background-color: #673AB7;
+}
+
+.zm-layout-dark .zm-footer-container {
+    background-color: #212121;
+    color: #CCCCCC;
+}
+
+.zm-layout-dark .zm-footer-copyright {
+    background-color: #000000;
+    color: #AAAAAA;
+}
+
+.zm-layout-dark .zm-nav-list-link {
+    color: #bdbdbd;
+}
+
+.zm-layout-dark .zm-nav-list-item.zm-menu-list-item:hover {
+    background-color: #404040;
+}
+
+.zm-layout-dark .zm-nav-title-link {
+    color: #673AB7;
+}
