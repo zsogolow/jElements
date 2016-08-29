@@ -1,6 +1,6 @@
 html,
 body {
-    background: #f3f3f3;
+    /*background: #f3f3f3;*/
     font-family: "Helvetica", "Arial", sans-serif;
     height: 100%;
     padding: 0;
@@ -275,6 +275,10 @@ h6 {
 dark theme
 */
 
+.zm-body-dark {
+    background-color: #000000;
+}
+
 .zm-layout-dark {
     color: #EFEFEF;
 }
@@ -282,7 +286,9 @@ dark theme
 .zm-layout-dark .zm-fixed-header {
     background-color: #000000;
 }
-
+.zm-layout-dark .zm-transparent-header {
+    background-color: transparent;
+}
 .zm-layout-dark .zm-nav-toggle {
     color: #EFEFEF;
 }
@@ -328,6 +334,17 @@ extendo header
 
 .zm-transparent-header {
     background-color: transparent;
+}
+
+.zm-appear-header {
+    background-color: transparent;
+    -webkit-transition: background-color 0.2s ease 0s;
+    -moz-transition: background-color 0.2s ease 0s;
+    transition: background-color 0.2s ease 0s;
+}
+
+.zm-appear-header.appeared {
+    background-color: #FFFFFF;
 }
 
 @media screen and (max-width: 1024px) {
