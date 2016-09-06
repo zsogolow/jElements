@@ -205,7 +205,7 @@ main {
 }
 
 .main-section {
-    /*padding: 16px;*/
+    padding: 16px;
     min-height: calc(100vh - 32px);
     text-align: center;
     /*background: rgba(0, 0, 0, 0.5);*/
@@ -273,6 +273,18 @@ main {
     background-color: #757575;
 }
 
+
+/*
+@-webkit-keyframes fadeOut {
+}
+
+@-moz-keyframes fadeOut {
+}
+
+@-o-keyframes fadeOut {
+}
+*/
+
 .appear-item {
     position: relative;
     -moz-transform: translateX(-105vw);
@@ -309,7 +321,37 @@ main {
 .appear-item--rotate-in {}
 
 .appear-item--rotate-in.appear {
+    -webkit-animation: rotate-in 1s;
+    -moz-animation: rotate-in 1s;
+    -o-animation: rotate-in 1s;
     animation: rotate-in 1s forwards;
+}
+
+@-webkit-keyframes rotate-in {
+    from {
+        -webkit-transform: translateX(-105vw) rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: translateX(0) rotateZ(360deg);
+    }
+}
+
+@-moz-keyframes rotate-in {
+    from {
+        -moz-transform: translateX(-105vw) rotateZ(0deg);
+    }
+    to {
+        -moz-transform: translateX(0) rotateZ(360deg);
+    }
+}
+
+@-o-keyframes rotate-in {
+    from {
+        -o-transform: translateX(-105vw) rotateZ(0deg);
+    }
+    to {
+        -o-transform: translateX(0) rotateZ(360deg);
+    }
 }
 
 @keyframes rotate-in {
@@ -324,7 +366,37 @@ main {
 .appear-item--pulse {}
 
 .appear-item--pulse.appear {
+    -webkit-animation: pulse 1s;
+    -moz-animation: pulse 1s;
+    -o-animation: pulse 1s;
     animation: pulse 1s;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.2);
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        -moz-transform: scale(1);
+    }
+    50% {
+        -moz-transform: scale(1.2);
+    }
+}
+
+@-o-keyframes pulse {
+    0% {
+        -o-transform: scale(1);
+    }
+    50% {
+        -o-transform: scale(1.2);
+    }
 }
 
 @keyframes pulse {
@@ -339,7 +411,73 @@ main {
 .appear-item--bounce {}
 
 .appear-item--bounce.appear {
+    -webkit-animation: bounce 1s forwards;
+    -moz-animation: bounce 1s forwards;
+    -o-animation: bounce 1s forwards;
     animation: bounce 1s forwards;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        -webkit-transform: translateX(-105vw)
+    }
+    45% {
+        -webkit-transform: translateX(75px);
+    }
+    70% {
+        -webkit-transform: translateX(-70px);
+    }
+    85% {
+        -webkit-transform: translateX(50px);
+    }
+    95% {
+        -webkit-transform: translateX(-25px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-moz-keyframes bounce {
+    0% {
+        -moz-transform: translateX(-105vw)
+    }
+    45% {
+        -moz-transform: translateX(75px);
+    }
+    70% {
+        -moz-transform: translateX(-70px);
+    }
+    85% {
+        -moz-transform: translateX(50px);
+    }
+    95% {
+        -moz-transform: translateX(-25px);
+    }
+    100% {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-o-keyframes bounce {
+    0% {
+        -o-transform: translateX(-105vw)
+    }
+    45% {
+        -o-transform: translateX(75px);
+    }
+    70% {
+        -o-transform: translateX(-70px);
+    }
+    85% {
+        -o-transform: translateX(50px);
+    }
+    95% {
+        -o-transform: translateX(-25px);
+    }
+    100% {
+        -o-transform: translateX(0);
+    }
 }
 
 @keyframes bounce {
@@ -374,7 +512,37 @@ main {
 .appear-item--twist.appear {
     visibility: visible;
     opacity: 1;
+    -webkit-animation: twist 0.4s;
+    -moz-animation: twist 0.4s;
+    -o-animation: twise 0.4s;
     animation: twist 0.4s;
+}
+
+@-webkit-keyframes twist {
+    from {
+        -webkit-transform: scale(0.5) rotateZ(30deg)
+    }
+    to {
+        -webkit-transform: scale(1) rotateZ(0deg)
+    }
+}
+
+@-moz-keyframes twist {
+    from {
+        -moz-transform: scale(0.5) rotateZ(30deg)
+    }
+    to {
+        -moz-transform: scale(1) rotateZ(0deg)
+    }
+}
+
+@-o-keyframes twist {
+    from {
+        -o-transform: scale(0.5) rotateZ(30deg)
+    }
+    to {
+        -o-transform: scale(1) rotateZ(0deg)
+    }
 }
 
 @keyframes twist {
@@ -470,6 +638,16 @@ main {
 
 .menu-icon.open span {
     background: #4caf50;
+}
+
+.back-to-top {
+    position: fixed;
+    z-index: 8;
+    color: #FFFFFF;
+    right: 24px;
+    bottom: 24px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 @media screen and (orientation:portrait) {
