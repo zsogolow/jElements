@@ -107,6 +107,7 @@ body::before {
     opacity: 1;
 }
 
+
 /*li.active .hoverLink::after,
 li:hover .hoverLink::after {
     display: inline-block;
@@ -304,18 +305,44 @@ li:hover .hoverLink::after {
 .navBubbles {
     position: fixed;
     right: 24px;
-    top: 50%;
+    top: 40%;
     margin: auto 0;
+    z-index: 10;
 }
 
 .navBubble {
     position: relative;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 2px;
     margin-bottom: 4px;
     background: transparent;
     border: 1px solid #040404;
+    cursor: pointer;
+}
+
+.navBubble>div {
+    position: relative;
+    min-width: 40px;
+    left: -40px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 12px;
+}
+
+.navBubble>div label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    visibility: hidden;
+    text-align: right;
+}
+
+.navBubble:hover label {
+    visibility: visible;
 }
 
 .navBubble.active {
@@ -358,7 +385,7 @@ li:hover .hoverLink::after {
     border-radius: 50%;
 }
 
-.navigation-container .social-container .socialBubble> div {
+.navigation-container .social-container .socialBubble>div {
     position: absolute;
     left: 0;
     right: 0;
@@ -378,7 +405,7 @@ li:hover .hoverLink::after {
     box-shadow: 0 0 4px;
 }*/
 
-.navigation-container .social-container .socialBubble:hover> div {
+.navigation-container .social-container .socialBubble:hover>div {
     line-height: 24px;
     top: -36px;
     height: 28px;
@@ -386,7 +413,7 @@ li:hover .hoverLink::after {
     border: 2px solid #ccc;
 }
 
-.navigation-container .social-container .socialBubble:hover> div i {
+.navigation-container .social-container .socialBubble:hover>div i {
     font-size: 20px;
 }
 
@@ -670,7 +697,7 @@ li:hover .hoverLink::after {
         width: 24px;
         line-height: 20px;
     }
-    .navigation-container .social-container .socialBubble:hover> div {
+    .navigation-container .social-container .socialBubble:hover>div {
         line-height: 16px;
         top: 0px;
         height: 20px;
